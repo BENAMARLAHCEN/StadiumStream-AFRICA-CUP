@@ -8,4 +8,10 @@ class HomeController extends Controller
     {
         $this->view('home');
     }
+
+    public function match()
+    {
+        $this->view('match');
+    }
+
 }

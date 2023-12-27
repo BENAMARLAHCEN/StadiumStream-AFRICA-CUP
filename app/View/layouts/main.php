@@ -40,6 +40,12 @@
     <?php require "../app/View/$view.php"; ?>
 
 
+
+    <?php require "footer.php"; ?>
+
+
+
+
     <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
