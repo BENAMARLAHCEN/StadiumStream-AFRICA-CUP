@@ -1,11 +1,11 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary text-white" style="background: #004930 !important;">
   <!-- Container wrapper -->
-  <div class="container">
+  <div class="container py-2">
     <!-- Navbar brand -->
     <a class="navbar-brand me-2" href="<?=url('/')?>">
       <img
-        src="<?= asset('asset/img/StadiumStream.png')?>"
+        src="<?= asset('asset/img/SStream.svg')?>"
         height="30"
         alt="MDB Logo"
         loading="lazy"
@@ -23,39 +23,35 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="fas fa-bars"></i>
+    <i class="bi bi-justify"></i>
     </button>
 
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white">
       <li class="nav-item">
-          <a class="nav-link" href="<?=url('/')?>">Home</a>
+          <a class="nav-link text-white" href="<?=url('/')?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=url('Team')?>">Team</a>
+          <a class="nav-link text-white" href="<?=url('Teams')?>">Teams</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=url('/')?>">Home</a>
+          <a class="nav-link text-white" href="<?=url('/About')?>">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="<?=url('/Contact')?>">Contact</a>
         </li>
       </ul>
       <!-- Left links -->
 
       <div class="d-flex align-items-center">
-        <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-          Login
+          <a class="text-white text-decoration-none px-3 me-2" href="">Login</a> 
+        
+        <button data-mdb-ripple-init type="button" class="btn btn-warning me-3">
+        <i class="bi bi-box-arrow-left"></i><span class=" ps-1">Register</span>
         </button>
-        <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
-          Sign up for free
-        </button>
-        <a
-          data-mdb-ripple-init
-          class="btn btn-dark px-3"
-          href=""
-          role="button"
-          ><i class="fab fa-github"></i
-        ></a>
+        
       </div>
     </div>
     <!-- Collapsible wrapper -->

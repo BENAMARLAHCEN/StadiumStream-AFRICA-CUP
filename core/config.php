@@ -6,8 +6,8 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 // Application
-define('APP_URL', 'http://localhost/documentation/StadiumStream/');
-define('LOG_URL', 'C:\laragon\www\documentation\StadiumStream\app');
+define('APP_URL', 'http://localhost/StadiumStream-AFRICA-CUP/');
+define('LOG_URL', 'C:\laragon\www\StadiumStream-AFRICA-CUP\app');
 
 // Database
 define('DB_HOST', $_ENV['DB_HOST']);
