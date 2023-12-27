@@ -52,8 +52,7 @@ class Router
         
         if (isset($uri[2])) {
             $this->params = array_values($uri);
-            // var_dump($this->params);
-            // exit;
+            
         }
 
         call_user_func_array([$objetController, $this->method], $this->params);
