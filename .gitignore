@@ -1,0 +1,6 @@
+composer.lock
+.env
+/vendor
+/node_modules
+/app/logs
+/public/asset/vendor
