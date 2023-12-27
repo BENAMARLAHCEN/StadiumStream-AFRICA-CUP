@@ -4,3 +4,4 @@ composer.lock
 /node_modules
 /app/logs
 /public/asset/vendor
+/core/config.php
