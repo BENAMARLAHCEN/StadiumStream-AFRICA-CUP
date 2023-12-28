@@ -1,4 +1,3 @@
-  <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="container footer-top">
