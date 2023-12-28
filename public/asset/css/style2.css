@@ -1,0 +1,42 @@
+#username , #email, #message, #password, #confirmPassword {
+    border: 1px solid #FF7900 ;
+  }
+
+  
+  .btn-click {
+    background-color: #FF7900;
+    border: none;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .text_log {
+    color: #064534;
+  }
+  
+  .info-contact {
+    padding-left: 3rem;
+    padding-top: 6rem;
+  }
+  
+  .card-info {
+    color : #FF7900;
+  }
+  
+  .card-info .btn{
+    color: #FF7900;
+    border-color: #064534;
+  }
+  
+  .card-title2 {
+    color: #064534;
+  }
+
+  #email-entreprise{
+    font-weight: bold;
+  }
+
+  .image-social-media{
+    margin: -31px -37px;
+  }
+
