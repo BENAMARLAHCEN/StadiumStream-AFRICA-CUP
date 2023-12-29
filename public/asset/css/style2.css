@@ -1,6 +1,14 @@
 #username , #email, #message, #password, #confirmPassword {
     border: 1px solid #FF7900 ;
   }
+  
+  :root {
+    --ma-couleur: #FF7900;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 
   
   .btn-click {
@@ -39,4 +47,269 @@
   .image-social-media{
     margin: -31px -37px;
   }
+
+
+
+   /* home page */
+
+.hero-section {
+    background-image: url('../img/Landing\ page.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 6rem;
+}
+
+.custom-text-color {
+    color: var(--ma-couleur);
+}
+
+.btn-more-info {
+    background-color: var(--ma-couleur);
+    border-color: var(--ma-couleur);
+    color: #fff;
+    margin-right: 3rem;
+}
+
+.btn-gow {
+    background-color: none;
+    border-color: white;
+    color: #fff;
+}
+
+.bi-social {
+    color: var(--ma-couleur);
+    padding: 1rem 1.2rem;
+    border-radius: 100%;
+    width: 1rem;
+    height: 1rem;
+}
+
+.media {
+    margin-right: 2rem;
+}
+
+.container-Search {
+    width: 100%;
+    height: 4rem;
+    left: 0px;
+    border-radius: 10px;
+    border: 2px #004930 solid;
+}
+
+.container-date {
+    width: 100%;
+    height: 4rem;
+    left: 0px;
+}
+
+#saerch {
+    width: 50%;
+    height: fit-content;
+    border: none;
+    background-color: none;
+    container: none;
+    outline: none;
+}
+
+#dateInput {
+    width: 31.1rem;
+    height: fit-content;
+    border: none;
+    background-color: none;
+    outline: none;
+}
+
+.btn-search {
+    background-color: var(--ma-couleur);
+    border-color: var(--ma-couleur);
+    color: #fff;
+    margin-right: 3rem;
+}
+
+.bi-search {
+    margin-right: 0.6rem;
+}
+
+.inputSearch {
+    width: 100%;
+    gap: 12rem;
+}
+
+.line {
+    border-right: 1rem;
+    background-color: rgb(159, 159, 159);
+    width: 1.5px;
+    height: 46px;
+}
+
+.line-card {
+    border-right: 1rem;
+    background-color: #004930;
+    width: 1%;
+    height: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0.3rem;
+    margin-right: 0.5rem;
+}
+.line-sadium{
+    border-right: 1rem;
+    background-color: var(--ma-couleur);
+    width: 1%;
+    height: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0.3rem;
+    margin-right: 0.5rem;
+}
+
+.bi-calendar {
+    margin-left: 0.8rem;
+    color: rgb(68, 68, 68);
+}
+
+.wiew-all {
+    color: var(--ma-couleur);
+}
+
+.card01 {
+    gap: 40px;
+}
+
+.card01-border {
+    border: 0.18rem solid #004930;
+    border-radius: 1.2rem;
+}
+
+.To-book {
+    background-color: var(--ma-couleur);
+    border: none;
+}
+
+.bi-ticket-fill {
+    margin-right: 0.5rem;
+}
+
+.line1 {
+    border-right: 1rem;
+    background-color: rgb(159, 159, 159);
+    width: 1.5px;
+    height: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0.2rem;
+    margin-right: 0.5rem;
+}
+
+.text-size {
+    font-size: small;
+    color: var(--ma-couleur);
+}
+
+.title-groups {
+    color: #004930;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.bg-groups {
+    background-image: url('../img/group-bg.svg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    height: auto;
+}
+.card-maroc{
+    color: var(--ma-couleur);
+    font-size:large;
+}
+.bi-geo-alt-fill{
+    color: var(--ma-couleur);
+}
+.card-text{
+    color: #004930;
+    font-size: large;
+}
+.group-style{
+    border: 0.14rem solid #004930;
+    border-radius: 2rem;
+    padding: 0.1rem;
+    color: var(--ma-couleur);
+}
+.card02{
+    gap: 15px;
+}
+.card02-border {
+    outline: none;
+    container: none;
+    border-radius: 1.2rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.btn-primary{
+    background-color: var(--ma-couleur);
+    border: var(--ma-couleur);
+}
+.Capacity{
+    padding-left: 0.3rem;
+    padding-top: 0.3rem;
+}
+.Capacity-color{
+    color: var(--ma-couleur);
+}
+.Capacity-color1{
+    color: #004930;
+
+}
+.blog-entry{
+    outline: none;
+    container: none;
+    border-radius: 1.2rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #007bff;
+}
+
+.btn-primary1{
+    background-color: var(--ma-couleur);
+    color: #fff;
+    border:#FF7900;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+    border-radius: 7px;
+    text-decoration: none;
+
+}
+.btn-primary1:hover{
+    background-color:#004930;
+    color: #fff;
+}
+.card-group{
+    width: 35%;
+}
+@media screen and (max-width: 767px) {
+    .bg-groups {
+        padding: 5rem;
+    }
+}
 
