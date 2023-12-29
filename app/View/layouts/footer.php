@@ -1,3 +1,4 @@
+  <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="container footer-top">
@@ -14,174 +15,131 @@
             <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+        <div class="col-lg-8 pe-xxl-10">
+          <div class="row gy-5">
+            <div class="col-6 col-lg-4">
+              <h5 class="text-white footer-title-02">A propos</h5>
+              <ul class="list-unstyled footer-link-01 m-0">
+                <li><a class="text-white text-opacity-75" href="#">About Us</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Blog</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Our ingredients</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Our resellers</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-4">
+              <h5 class="text-white footer-title-02">About</h5>
+              <ul class="list-unstyled footer-link-01 m-0">
+                <li><a class="text-white text-opacity-75" href="#">Customer Service</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Privacy Policy</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Cookie Policy</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Terms &amp; Conditions</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-4">
+              <h5 class="text-white footer-title-02">Need Help?</h5>
+              <ul class="list-unstyled footer-link-01 m-0">
+                <li><a class="text-white text-opacity-75" href="#">Contact Us</a></li>
+                <li><a class="text-white text-opacity-75" href="#">FAQs</a><span class="new">New</span></li>
+                <li><a class="text-white text-opacity-75" href="#">Offers &amp; Kits</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Get the app</a></li>
+                <li><a class="text-white text-opacity-75" href="#">Store locator</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
-
       </div>
     </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>&copy; <span>Copyright</span> <strong class="px-1">Append</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+  <div class="footer-bottom small py-3 border-top border-white border-opacity-10">
+    <div class="container">
+      <div class="row">
+        <div >
+          <p class="copyright m-0 text-white text-opacity-75 text-center">© 2022 copyright by <a class="text-reset" href="#">StadiumStream.com</a>
+          </p>
+        </div>
       </div>
     </div>
-
-  </footer><!-- End Footer -->
+  </div>
+</footer>
 
 
 <style>
-    /*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-.footer {
-  --background-color: #f4f4f4;
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 14px;
-  padding-bottom: 50px;
-}
+  .wrapper>* {
+    flex: 0 0 auto;
+  }
 
-.footer .footer-top {
-  padding-top: 50px;
-}
+  .footer {
+    background-color: #004930;
+  }
 
-.footer .footer-about .logo {
-  line-height: 0;
-  margin-bottom: 25px;
-}
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
 
-.footer .footer-about .logo img {
-  max-height: 40px;
-  margin-right: 6px;
-}
+  .py-8 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
 
-.footer .footer-about .logo span {
-  color: var(--secondary-color);
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-family: var(--heading-font);
-}
+  .footer-link-01 li+li {
+    padding-top: 0.8rem;
+  }
 
-.footer .footer-about p {
-  font-size: 14px;
-  font-family: var(--heading-font);
-}
+  .footer-title-01 {
+    font-size: 8px;
+    margin: 0 0 20px;
+    font-weight: 300;
+    padding-right: 3rem;
+  }
 
-.footer .social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(var(--default-color-rgb), 0.5);
-  font-size: 16px;
-  color: rgba(var(--default-color-rgb), 0.5);
-  margin-right: 10px;
-  transition: 0.3s;
-}
+  .footer-title-02 {
+    font-size: 16px;
+    margin: 0 0 20px;
+    font-weight: 600
+  }
 
-.footer .social-links a:hover {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
+  .footer-link-01 li+li {
+    padding-top: .8rem
+  }
+  .new{
+    background-color: #FF7900;
+    border-radius: 45%;
+    font-family: Roboto;
+    color: #fff;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+    font-size:small;
+    margin-left: 0.5rem;
+  }
 
-.footer h4 {
-  color: var(--secondary-color);
-  font-size: 16px;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
-}
+  @media (max-width: 991.98px) {
+    .footer-link-01 li+li {
+      padding-top: .6rem
+    }
+  }
 
-.footer .footer-links {
-  margin-bottom: 30px;
-}
+  .footer-link-01 a {
+    position: relative;
+    display: inline-block;
+    vertical-align: top
+  }
 
-.footer .footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  .footer-link-01 a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 1px;
+    transition: ease all .35s;
+    background: currentColor
+  }
 
-.footer .footer-links ul i {
-  padding-right: 2px;
-  font-size: 12px;
-  line-height: 0;
-}
-
-.footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.footer .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-.footer .footer-links ul a {
-  color: rgba(var(--default-color-rgb), 0.8);
-  display: inline-block;
-  line-height: 1;
-}
-
-.footer .footer-links ul a:hover {
-  color: var(--primary-color);
-}
-
-.footer .footer-contact p {
-  margin-bottom: 5px;
-}
-
-.footer .copyright {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  background-color: rgba(var(--default-color-rgb), 0.05);
-}
-
-.footer .copyright p {
-  margin-bottom: 0;
-}
-
-.footer .credits {
-  margin-top: 6px;
-  font-size: 13px;
-}
-
+  .footer-link-01 a:hover:after {
+    left: 0;
+    right: auto;
+    width: 100%
+  }
 </style>
