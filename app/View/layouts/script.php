@@ -5,4 +5,4 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
     </div>
     <!-- Template Main JS File -->
-    <script src="<?= asset('asset/js/main.js')?>"></script>
+    <script src="<?= asset('asset/js/dashboard/main.js')?>"></script>
