@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md row  d-md-inline d-none ">
-            <img style="width: 35vw; height: 35vw;" src="./Capture d’écran 2023-12-26 120400.png" alt="">
+            <img style="width: 35vw; height: 35vw;" src="<?=APP_URL?>asset/img/about1.png" alt="">
 
         </div>
     </div>
@@ -38,7 +38,7 @@
 
 <section class="container mx-auto row   pb-5 pt-5">
     <div style="padding-right:5rem;" class="col-md d-md-inline d-none  ">
-        <img style="width: 35vw; height: 39vw;" src="./Capture d’écran 2023-12-26 121347.png" alt="">
+        <img style="width: 35vw; height: 39vw;" src="<?=APP_URL?>asset/img/about2.png" alt="">
     </div>
     <div class=" col-md  pt-5 ">
         <h2 style="color: #004930;">Who We Are</h2>
