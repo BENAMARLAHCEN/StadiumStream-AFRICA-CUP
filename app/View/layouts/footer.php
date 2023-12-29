@@ -1,10 +1,19 @@
-<footer class="footer">
-  <div class="footer-top py-8">
-    <div class="container">
-      <div class="row gy-5">
-        <div class="col-lg-4">
-          <img src="<?=APP_URL?>asset/img/logo.svg" alt="">
-          <h5 class="text-white footer-title-01 fs-6">StadiumStream isn't just a ticketing website we're your trusted partner in making your event dreams a reality. </h5>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <span>Append</span>
+          </a>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
         <div class="col-lg-8 pe-xxl-10">
           <div class="row gy-5">

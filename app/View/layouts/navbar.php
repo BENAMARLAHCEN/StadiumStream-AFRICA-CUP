@@ -34,7 +34,7 @@
           <a class="nav-link text-white" href="<?=url('/')?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?=url('Teams')?>">Teams</a>
+          <a class="nav-link text-white" href="<?=APP_URL?>Teams">Teams</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="<?=url('/About')?>">About Us</a>
@@ -46,10 +46,10 @@
       <!-- Left links -->
 
       <div class="d-flex align-items-center">
-          <a class="text-white text-decoration-none px-3 me-2" href="">Login</a> 
+          <a class="text-white text-decoration-none px-3 me-2" href="<?=url('/Auth/login')?>">Login</a> 
         
         <button data-mdb-ripple-init type="button" class="btn btn-warning me-3">
-        <i class="bi bi-box-arrow-left"></i><span class=" ps-1">Register</span>
+        <i class="bi bi-box-arrow-left"></i><a href="<?=url('/Auth')?>"><span class=" ps-1">Register</span></a>
         </button>
         
       </div>

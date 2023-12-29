@@ -8,4 +8,9 @@ class ContactController extends Controller
     {
         $this->view('contact');
     }
+    public function sendMailer()
+    {
+        extract($_POST);
+        PhpMailerSend::sendMail("ginsan.ben3@gmail.com",$username,$message);
+    }
 }
