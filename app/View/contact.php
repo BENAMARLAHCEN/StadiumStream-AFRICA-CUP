@@ -14,11 +14,13 @@
                     <h4>Leave us a message</h4>
                   </div>
 
-                  <form action="<?=APP_URL?>/contact/sendMailer" method="post">
+                  <form action="<?=APP_URL?>contact/sendMailer" method="post">
                     <div class="mb-3">
-                      <input type="usename" name="username" class="form-control p-2 " id="username" placeholder="username">
+                      <input type="text" name="username" class="form-control p-2 " id="username" placeholder="username">
                     </div>
-
+                    <div class="mb-3">
+                      <input type="text" name="subject" class="form-control p-2 " id="username" placeholder="subject">
+                    </div>
                     <div class="mb-3">
                       <input type="email" name="email" class="form-control p-2" id="email" placeholder="name@example.com">
                     </div>

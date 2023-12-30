@@ -11,6 +11,7 @@ class ContactController extends Controller
     public function sendMailer()
     {
         extract($_POST);
-        PhpMailerSend::sendMail("ginsan.ben3@gmail.com",$username,$message);
+        PhpMailerSend::sendMail($username,$subject,$message);
+        header("location:../");
     }
 }
