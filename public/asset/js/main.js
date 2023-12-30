@@ -44,5 +44,11 @@
 })(jQuery);
 
 $(function() {
-    $("#dateInput").datepicker();
+	$('#dateInput').daterangepicker({
+		opens: 'left', // ou 'right'
+		locale: {
+			format: 'DD/MM/YYYY', // Format de la date
+			separator: ' - ', // Séparateur pour la plage de dates
+		}
+	});
 });

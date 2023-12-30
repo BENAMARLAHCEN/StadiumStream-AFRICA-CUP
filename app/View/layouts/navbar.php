@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary text-white" style="background: #004930 !important; z-index: 2;">
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary text-white shadow-none" style="background: #004930 !important; z-index: 2;">
   <!-- Container wrapper -->
   <div class="container py-2">
     <!-- Navbar brand -->
