@@ -3,15 +3,16 @@
   use App\Model\MatchModel;
   class MatchController extends Controller {
     function index(){
-         
+        
+         header("Location:../");
        
     }
-    function test($id){
-        
+    function reserve($id){
+
         $test=new MatchModel();
-       
+
         $matches=$test->selectMatch($id);
-        // var_dump($matches);
-       $this->view('match',$matches);
+        
+        $this->view('match',$matches);
     }
   }
