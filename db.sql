@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 29, 2023 at 10:47 AM
+-- Generation Time: Jan 01, 2024 at 01:48 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -101,7 +101,7 @@ CREATE TABLE `reservation` (
   `id` int NOT NULL,
   `id_user` int DEFAULT NULL,
   `ticket_count` int DEFAULT NULL,
-  `date_reservattion` date DEFAULT NULL
+  `date_reservattion` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -172,30 +172,30 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coatch`, `logo`) VALUES
-(1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', NULL),
-(2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', NULL),
-(3, 'Nigeria', 'Nigeria', 'jose peseiro', NULL),
-(4, 'Guinée équatoriale', 'Guinée équatoriale', 'kamba diawara', NULL),
-(5, 'Egypte', 'Egypte', 'rui vitoria', NULL),
-(6, 'Mozambique', 'Mozambique', 'chiquinho conde', NULL),
-(7, 'Ghana', 'Ghana', 'chris hughton', NULL),
-(8, 'Cap-Vert', 'Cap-Vert', 'nita nedio', NULL),
-(9, 'Sénégal', 'Sénégal', 'aliou cisse', NULL),
-(10, 'Gambie', 'Gambie', 'tom saintfiet', NULL),
-(11, 'Cameroun', 'Cameroun', 'rigobert song', NULL),
-(12, 'Guinée', 'Guinée', 'baciro cande', NULL),
-(13, 'Algérie', 'Algérie', 'djamel belmadi', NULL),
-(14, 'Angola', 'Angola', 'pedro goncalves', NULL),
-(15, 'Burkina Faso', 'Burkina Faso', 'hubert velud', NULL),
-(16, 'Mauritanie', 'Mauritanie', 'amir abdou', NULL),
-(17, 'Tunisie', 'Tunisie', 'jaled kadri', NULL),
-(18, 'Namibie', 'Namibie', 'collin benjamin', NULL),
-(19, 'Mali', 'Mali', 'eric chelle', NULL),
-(20, 'Afrique du Sud', 'Afrique du Sud', 'rassie erasmus', NULL),
-(21, 'Maroc', 'Maroc', 'oualid regragi', NULL),
-(22, 'Tanzanie', 'Tanzanie', 'tom badia', NULL),
-(23, 'RDC', 'RDC', ' sebastien desabre', NULL),
-(24, 'Zambie', 'Zambie', 'avram grant', NULL);
+(1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI'),
+(2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW'),
+(3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG'),
+(4, 'Guinée équatoriale', 'Guinée équatoriale', 'kamba diawara', 'GQ'),
+(5, 'Egypte', 'Egypte', 'rui vitoria', 'EG'),
+(6, 'Mozambique', 'Mozambique', 'chiquinho conde', 'MZ'),
+(7, 'Ghana', 'Ghana', 'chris hughton', 'GH'),
+(8, 'Cap-Vert', 'Cap-Vert', 'nita nedio', 'CV'),
+(9, 'Sénégal', 'Sénégal', 'aliou cisse', 'SN'),
+(10, 'Gambie', 'Gambie', 'tom saintfiet', 'GM'),
+(11, 'Cameroun', 'Cameroun', 'rigobert song', 'CM'),
+(12, 'Guinée', 'Guinée', 'baciro cande', 'GN'),
+(13, 'Algérie', 'Algérie', 'djamel belmadi', 'DZ'),
+(14, 'Angola', 'Angola', 'pedro goncalves', 'AO'),
+(15, 'Burkina Faso', 'Burkina Faso', 'hubert velud', 'BF'),
+(16, 'Mauritanie', 'Mauritanie', 'amir abdou', 'MR'),
+(17, 'Tunisie', 'Tunisie', 'jaled kadri', 'TN'),
+(18, 'Namibie', 'Namibie', 'collin benjamin', 'NA'),
+(19, 'Mali', 'Mali', 'eric chelle', 'ML'),
+(20, 'Afrique du Sud', 'Afrique du Sud', 'rassie erasmus', 'ZA'),
+(21, 'Maroc', 'Maroc', 'oualid regragi', 'MA'),
+(22, 'Tanzanie', 'Tanzanie', 'tom badia', 'TZ'),
+(23, 'RDC', 'RDC', ' sebastien desabre', 'CD'),
+(24, 'Zambie', 'Zambie', 'avram grant', 'ZM');
 
 -- --------------------------------------------------------
 
@@ -242,7 +242,7 @@ ALTER TABLE `matche`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `reservation_ibfk_1` (`id_user`);
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `role`
@@ -285,7 +285,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -297,6 +297,12 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --

@@ -5,27 +5,29 @@
     </div> -->
     <div class="row">
       <div class=" text-center">
-        <div class="match-title card text-dark card-has-bg click-col" style="background-image:url('images/match.jpg'); ">
+        <div class="match-title card text-dark card-has-bg click-col"
+          style="background-image:url('images/match.jpg'); ">
           <div class="card-img-overlay d-flex flex-column">
             <div class="card-body">
-
-              <h4 class="card-title mt-0 text-center">Jan 13, 21:00</h4>
-              <p class="card-title mt-0 text-center">Stadium : Olympic Stadium of Ebimpé</p>
+              
+              <h4 class="card-title mt-0 text-center"><?= $data[0]->MatchDateTime ?></h4>
+              <p class="card-title mt-0 text-center">Stadium : <?= $data[0]->stadiomName ?> </p>
               <div class="d-flex flex-row align-items-center justify-content-between mb-2">
                 <div class="col-3 text-right d-flex flex-column text-center">
-                  <img src="<?= APP_URL ?>asset/uploads/Image.svg" alt="">
-                  <p class="name mt-0 text-center">name</p>
+                  <img style="border-radius:100%;" src="https://flagsapi.com/<?=$data[0]->logoA?>/flat/64.png" alt="flag of <?= $data[0]->teamA ?> ">
+                  <p class="name mt-0 text-center"><?= $data[0]->teamA ?></p>
 
                 </div>
                 <div class="vs me-2">VS</div>
                 <div class="col-3 text-right d-flex flex-column ms-2 text-center">
-                  <img src="<?= APP_URL ?>asset/uploads/Flag_Congo.svg" alt="">
-                  <p class="name mt-0 text-center">name</p>
-
+                  <img style="border-radius:100%;"  src="https://flagsapi.com/<?=$data[0]->logoB?>/flat/64.png" alt="flag of <?= $data[0]->teamB ?> ">
+                  <p class="name mt-0 text-center"><?= $data[0]->teamB ?></p>
+                
                 </div>
               </div>
               <!-- <div class="text-center"><a href="" class="btn border border-dotted  mt-5 py-3 px-5 fs-5">Reserve</a></div> -->
-              <button type="button" class="btn btn-success mt-5 py-3 px-5 fs-5" style=""><a href="" class="reserve">Reserve</a></button>
+              <button type="button" class="btn btn-success mt-5 py-3 px-5 fs-5  " data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop" style=""><a href="" class="reserve">Reserve</a></button>
 
             </div>
           </div>
@@ -35,10 +37,46 @@
 
 
     </div>
-
+    
   </div>
 </section>
+  
+<!-- modale reservation -->
 
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form action="<?=APP_URL?>reservation/addreservation" method="post" class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div  class="modal-body">
+                  <div class="mb-3 row">
+                    <label for="inputPassword"  class="col-sm-2 col-form-label"    >Number Of tecket</label>
+                    <div class="col-sm-10">
+                      <input type="number" name="number_of_ticket" class="form-control" id="inputPassword" value="1" required>
+                    </div>
+                  </div>
+                   <input type="hidden" value="<?=$data[0]->MatchID?>" name="id_match" >
+                  <div class="mb-3 row">
+                    <div  class="col-sm-10" >
+                  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" required >
+                   <label class="btn btn-outline-primary" for="btncheck1">i agree</label>
+                  </div>
+                  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">confirmer</button> -->
+        <input type="submit" value="confirmer"  class="btn btn-primary" >
+      </div>
+    </form>
+  </div>
+</div>
+<!-- end Modal -->
 <style>
   body {
     /* Created with https://www.css-gradient.com */
@@ -108,7 +146,7 @@
       }
 
       &:hover {
-        
+
 
         transform: scale(0.98);
         box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
