@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">STADIUM LIST</h5>
-                    <button id="addTeamBtn" class="btn btn-primary mb-3"><a class="text-decoration-none" href="Team/Add">Add Team</a></button>
+                    <button id="addTeamBtn" class="btn btn-primary mb-3"><a class="text-decoration-none" href="Stadium/Add">Add Stadium</a></button>
                     <!-- <p>Add lightweight datatables to your project with using the <a
                   href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library.
                 Just add <code>.datatable</code> class name to any table you wish to conver to a datatable. Check for <a
@@ -33,7 +33,7 @@
                                 <td><?=$row['name']?></td>
                                 <td><?=$row['city']?></td>
                                 <td><?=$row['capacity']?></td>
-                                <td><?=$row['adress']?></td>
+                                <td><?=$row['address']?></td>
                                 <td><?=$row['detail']?></td>
                                 <td><?=$row['image']?></td>
                                 <td>
