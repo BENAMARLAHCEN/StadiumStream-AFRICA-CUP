@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 01, 2024 at 01:48 PM
+-- Generation Time: Jan 02, 2024 at 01:38 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -134,24 +134,26 @@ CREATE TABLE `stadium` (
   `name` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `capacity` bigint DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `detail` text NOT NULL,
+  `image` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `stadium`
 --
 
-INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`) VALUES
-(1, 'National Stadium', 'Abidjan', 50000, '123 Main Street, Abidjan'),
-(2, 'Unity Stadium', 'Yamoussoukro', 45000, '456 Central Avenue, Yamoussoukro'),
-(3, 'Liberty Arena', 'Bouaké', 40000, '789 Freedom Road, Bouaké'),
-(4, 'Victory Park', 'Korhogo', 35000, '101 Winners Circle, Korhogo'),
-(5, 'Harmony Stadium', 'San Pedro', 30000, '222 Peaceful Lane, San Pedro'),
-(6, 'Serenity Arena', 'Daloa', 32000, '333 Tranquil Street, Daloa'),
-(7, 'Golden Stadium', 'Man', 28000, '444 Prosperity Avenue, Man'),
-(8, 'Emerald Field', 'Gagnoa', 26000, '555 Green Boulevard, Gagnoa'),
-(9, 'Royal Park', 'Bondoukou', 23000, '666 Regal Road, Bondoukou'),
-(10, 'Silver Park', 'Grand-Bassam', 21000, '777 Silver Street, Grand-Bassam');
+INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `image`) VALUES
+(1, 'National Stadium', 'Abidjan', 50000, '123 Main Street, Abidjan', '', ''),
+(2, 'Unity Stadium', 'Yamoussoukro', 45000, '456 Central Avenue, Yamoussoukro', '', ''),
+(3, 'Liberty Arena', 'Bouaké', 40000, '789 Freedom Road, Bouaké', '', ''),
+(4, 'Victory Park', 'Korhogo', 35000, '101 Winners Circle, Korhogo', '', ''),
+(5, 'Harmony Stadium', 'San Pedro', 30000, '222 Peaceful Lane, San Pedro', '', ''),
+(6, 'Serenity Arena', 'Daloa', 32000, '333 Tranquil Street, Daloa', '', ''),
+(7, 'Golden Stadium', 'Man', 28000, '444 Prosperity Avenue, Man', '', ''),
+(8, 'Emerald Field', 'Gagnoa', 26000, '555 Green Boulevard, Gagnoa', '', ''),
+(9, 'Royal Park', 'Bondoukou', 23000, '666 Regal Road, Bondoukou', '', ''),
+(10, 'Silver Park', 'Grand-Bassam', 21000, '777 Silver Street, Grand-Bassam', '', '');
 
 -- --------------------------------------------------------
 
@@ -282,6 +284,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `matche`
+--
+ALTER TABLE `matche`
+  MODIFY `MatchID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
@@ -292,6 +300,18 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `role`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `stadium`
+--
+ALTER TABLE `stadium`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `TeamID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ticket`
