@@ -177,8 +177,8 @@
                 </svg>
                 <i><?=$m->stadiomName?> <?=$m->city?></i>
               </p>
-              <a href="#" class="To-book btn btn-primary">
-                <i class="bi bi-ticket-fill"></i>Book Ticket
+              <a href="./match/reserve/<?=$m->MatchID?>" class="To-book btn btn-primary">
+                <i  class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
           </div>
@@ -206,8 +206,6 @@
 
       <img style="width:25rem" src="<?= APP_URL ?>asset/img/GroupC.svg" alt="" class="card-group" />
 
-    </div>
-    <div class="d-flex flex-wrap justify-content-around align-items-center">
 
       <img style="width:25rem" src="<?= APP_URL ?>asset/img/GroupD.svg" alt="" class="card-group" />
 
