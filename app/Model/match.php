@@ -19,11 +19,13 @@ class matche {
     public function createMatch($data){
         
         try{
+            
             $MatchDateTime = carbon::prase($data['MatchDateTime']);
-        $NowDateTime = carbon::now();
-        $DiffDateTime = $NowDateTime->diffInDays($MatchDateTime);
+            $NowDateTime = carbon::now();
+            $DiffDateTime = $NowDateTime->diffInDays($MatchDateTime);
         
         if($DiffDateTime!==2){
+
             throw new Exception("The match must have exactly two days remaining.");
         }
 

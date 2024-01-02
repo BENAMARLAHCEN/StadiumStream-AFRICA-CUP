@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Model\matche;
 use Exception;
 
-class MatchController
+class MatchController extends Controller
 {
 
     private $matchModel;
@@ -12,6 +12,11 @@ class MatchController
     public function __construct()
     {
         $this->matchModel = new matche();
+    }
+
+    public function index()
+    {
+        $this->adminView('Matche');
     }
 
     public function createMatch($data)
