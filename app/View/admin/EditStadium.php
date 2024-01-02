@@ -27,7 +27,7 @@
                 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input value="<?=$data['adress']?>" type="text" name="adress" class="form-control"  placeholder="Adress">
+                        <input value="<?=$data['address']?>" type="text" name="address" class="form-control"  placeholder="Adress">
                         <label>Adress</label>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="file" class="form-control" name="stadium_image" id="floatingCity" value="<?= $row['image']?>">
+                            <input type="file" class="form-control" name="image" id="floatingCity" value="<?= $row['image']?>">
                             <label for="floatingCity">Stadium Image</label>
                         </div>
                     </div>
