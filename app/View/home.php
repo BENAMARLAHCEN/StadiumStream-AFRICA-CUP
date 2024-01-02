@@ -1,58 +1,124 @@
-<section class="jumbotron jumbotron-fluid hero-section">
-  <!-- container -->
-  <div class="container">
-    <!-- row -->
-    <div class="row align-items-center">
-      <!-- col -->
-      <div class="col-lg-7 mb-6 mb-lg-0">
-        <div class="">
-          <!-- heading -->
-          <h1 class="display-3 fw-bold">
-            Live <span class="custom-text-color">African</span> football.
-          </h1>
-          <h2 class="custom-text-color display-3 fw-bold mb-5">
-            Book now!
-          </h2>
-          <!-- btn -->
-          <a href="#" class="btn-primary2">READ MORE
-            <span class="ion-ios-arrow-round-forward"></span>
-          </a>
-          <a href="#" class="btn-primary3">GOW NOW !
-            <span class="ion-ios-arrow-round-forward"></span>
-          </a>
-          <div class="mt-5">
-            <a href="" class="media"><i class="bi bi-facebook bi-social bg-white w-100%"></i></a>
-            <a href="" class="media"><i class="bi bi-twitter-x bi-social bg-white"></i></a>
-            <a href="" class="media"><i class="bi bi-instagram bi-social bg-white"></i></a>
-            <a href="" class="media"><i class="bi bi-youtube bi-social bg-white"></i></a>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+    .search-section {
+      padding: 0.6rem;
+      border-radius: 0.4rem;
+      border: 0.13rem solid #004930;
+    }
+
+    .input-group {
+      width: 100%;
+    }
+
+    .d-flex {
+      height: 100%; 
+    }
+    .btn-search{
+      background-color: #FF7900;
+      border: none;
+      box-shadow: none;
+    }
+    .btn-search:hover{
+      background-color: #FF7900;
+      border: none;
+      box-shadow: none;
+      
+    }
+    
+    .btn-search:focus{
+      background-color: #FF7900;
+      box-shadow: none;
+    }
+    .btn-primary{
+      background-color: #FF7900;
+      border: none;
+      box-shadow: none;
+    }
+    .btn-primary:hover{
+      background-color: #FF7900;
+      box-shadow: none;
+    }
+    .btn-primary:focus{
+      background-color: #FF7900;
+      box-shadow: none;
+    }
+    .card01-border{
+      border: 0.17rem solid #004930;
+      border-radius: 1rem;
+    } 
+    .custom-text-color{
+      font-family: 'Roboto', sans-serif;
+    }
+    .btn-primary6:hover {
+    background-color: #34B233;
+    color: white;
+    }
+    .social-icon {
+      font-size:  1.2rem;
+    }
+
+
+
+  </style>
+ <section class="jumbotron jumbotron-fluid hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 mb-4 mb-lg-0">
+          <div>
+            <h1 class="display-3 fw-bold">
+              Live <span class="custom-text-color">African</span> football.
+            </h1>
+            <h2 class="custom-text-color display-3 fw-bold mb-4">
+              Book now!
+            </h2>
+            <a href="#" class="btn btn-primary2 btn-lg text-white" style="background-color: #FF7900; padding-left: 15px;">READ MORE <span class="ion-ios-arrow-round-forward"></span></a>
+            <a href="#" class="btn btn-primary3 btn-lg mt-2 mt-lg-0" style="background-color: transparent; border: 2px solid white; color: white;">GOW NOW ! <span class="ion-ios-arrow-round-forward"></span></a>
+            <div class="mt-3 mt-lg-5 d-flex flex-wrap">
+              <a href="#" class="media me-2 mb-2"><i class="bi bi-facebook bi-social bg-white w-100% social-icon"></i></a>
+              <a href="#" class="media me-2 mb-2"><i class="bi bi-twitter-x bi-social bg-white social-icon"></i></a>
+              <a href="#" class="media me-2 mb-2"><i class="bi bi-instagram bi-social bg-white social-icon"></i></a>
+              <a href="#" class="media me-2 mb-2"><i class="bi bi-youtube bi-social bg-white social-icon"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="position-relative">
+            <img src="<?= APP_URL ?>asset/img/logo_coupe.svg" alt="logo Coupe D'afrique" class="img-fluid" />
           </div>
         </div>
       </div>
-      <!-- col -->
-      <div class="col-lg-5 d-flex justify-content-center">
-        <div class="position-relative">
-          <img src="<?= APP_URL ?>asset/img/logo_coupe.svg" alt="logo Coupe D'afrique" />
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+
+
+
+
+
+
+
+
+
 
 <section class="p-5">
   <div class="container">
-    <div class="container-Search d-flex justify-content-between align-items-center px-4">
-      <div class="inputSearch d-flex justify-content-start align-items-center">
-        <input type="search" name="search" id="saerch" placeholder="Search by matchs, teams, stadiums..." />
+    <div class="d-flex justify-content-around align-items-center search-section">
+      <div class="col-md-6 m-0">
+        <div class="input-group">
+          <input type="search" class="form-control" id="search" placeholder="Search by matches, teams, stadiums...">
+        </div>
       </div>
-      <div class="container-date d-flex justify-content-between align-items-center px-4">
-        <span class="line"></span>
-        <i class="bi bi-calendar ml-4"></i>
-        <input type="text" id="dateInput" placeholder="Select date" />
+      <div class="col-md-4 m-0">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+          <input type="text" class="form-control" id="date-range" placeholder="Select Date Range">
+        </div>
       </div>
-      <div class="row align-items-center p-3">
-        <a href="#" class="btn btn-search px-1 py-2">
-          <i class="bi bi-search ml-3"></i>Search
-        </a>
+      <div class="m-0">
+        <button type="button" class="btn btn-primary btn-search ">
+          <i class="bi bi-search"></i> Search
+        </button>
       </div>
     </div>
   </div>
@@ -106,7 +172,7 @@
                 <i>Stade Alassane Ouattara Ebimpe ABIDJAN</i>
               </p>
               <a href="#" class="To-book btn btn-primary">
-                <i class="bi bi-ticket-fill"></i>To book
+                <i class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
           </div>
@@ -146,7 +212,7 @@
                 <i>Stade Alassane Ouattara Ebimpe ABIDJAN</i>
               </p>
               <a href="#" class="To-book btn btn-primary">
-                <i class="bi bi-ticket-fill"></i>To book
+                <i class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
           </div>
@@ -187,7 +253,7 @@
                 <i>Stade Alassane Ouattara Ebimpe ABIDJAN</i>
               </p>
               <a href="#" class="To-book btn btn-primary">
-                <i class="bi bi-ticket-fill"></i>To book
+                <i class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
           </div>
@@ -227,7 +293,7 @@
                 <i>Stade Alassane Ouattara Ebimpe ABIDJAN</i>
               </p>
               <a href="#" class="To-book btn btn-primary">
-                <i class="bi bi-ticket-fill"></i>To book
+                <i class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
           </div>
@@ -415,6 +481,22 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="d-flex flex-row justify-content-around align-items-center p-5">
+      <img src="<?= APP_URL ?>asset/img/partner1.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner2.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner3.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner4.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner5.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner6.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner7.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner8.png.svg" alt="">
+      <img src="<?= APP_URL ?>asset/img/partner9.png.svg" alt="">
     </div>
   </div>
 </section>

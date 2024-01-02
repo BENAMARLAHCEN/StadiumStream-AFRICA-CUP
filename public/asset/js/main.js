@@ -1,4 +1,24 @@
 
+$(document).ready(function() {
+	$('#date-range').daterangepicker({
+	  opens: 'left',
+	  drops: 'down',
+	  autoApply: true,
+	  locale: {
+		format: 'YYYY-MM-DD',
+		separator: ' - ',
+		applyLabel: 'Apply',
+		cancelLabel: 'Cancel',
+		fromLabel: 'From',
+		toLabel: 'To',
+		customRangeLabel: 'Custom',
+		daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		firstDay: 0
+	  }
+	});
+  });
+  
 (function($) {
 
 	"use strict";
@@ -43,12 +63,5 @@
 
 })(jQuery);
 
-$(function() {
-	$('#dateInput').daterangepicker({
-		opens: 'left', // ou 'right'
-		locale: {
-			format: 'DD/MM/YYYY', // Format de la date
-			separator: ' - ', // Séparateur pour la plage de dates
-		}
-	});
-});
+
+

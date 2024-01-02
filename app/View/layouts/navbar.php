@@ -1,3 +1,18 @@
+<style>
+  .btn-warning{
+    background-color: #FF7900;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+  }
+  .btn-warning:hover{
+    background-color: #FF7900;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+  }
+</style>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary text-white shadow-none" style="background: #004930 !important; z-index: 2;">
   <!-- Container wrapper -->
@@ -27,7 +42,7 @@
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+    <div class="collapse navbar-collapse align-items-center" id="navbarButtonsExample">
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white">
       <li class="nav-item">
@@ -49,7 +64,7 @@
           <a class="text-white text-decoration-none px-3 me-2" href="<?=url('/Auth/login')?>">Login</a> 
         
         <button data-mdb-ripple-init type="button" class="btn btn-warning me-3">
-        <i class="bi bi-box-arrow-left"></i><a href="<?=url('/Auth')?>"><span class=" ps-1">Register</span></a>
+        <i class="bi bi-box-arrow-left"></i><a href="<?=url('/Auth')?>"><span class=" ps-1 text-white">Register</span></a>
         </button>
         
       </div>
