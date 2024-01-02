@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <img class="image w-100" src="public/asset/img/side-view-smiley-kid-holding-ball 1.svg" alt="side-view-smiley-kid-holding-ball ">
+                <img class="image w-100" src="<?=APP_URL?>asset/img/side-view-smiley-kid-holding-ball 1.svg" alt="side-view-smiley-kid-holding-ball ">
                </div>
             </div>
           </div>
