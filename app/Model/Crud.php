@@ -65,11 +65,8 @@ class Crud extends connection
                 $i++;
             }
             $stmt->execute();
-            // Execute the prepared statement
-            // if ($stmt->execute()) {
-            //     // Get the ID of the last inserted row (if applicable)
-            //     $lastInsertId = $this->pdo->lastInsertId();
             return true;
+            
         } catch (PDOException $e) {
             $this->logError($e);
             return false;
