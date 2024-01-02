@@ -21,6 +21,7 @@
                                 <th>Capacity</th>
                                 <th>Adress</th>
                                 <th>Detail</th>
+                                <th>Image</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +35,7 @@
                                 <td><?=$row['capacity']?></td>
                                 <td><?=$row['adress']?></td>
                                 <td><?=$row['detail']?></td>
+                                <td><?=$row['image']?></td>
                                 <td>
                                     <a href="./Stadium/Edit/<?=$row['id']?>" class="btn btn-info btn-sm edit-team">Edit</a>
                                     <a href="./Stadium/DeleteStadium/<?=$row['id']?>" class="btn btn-danger btn-sm delete-team">Delete</a>
