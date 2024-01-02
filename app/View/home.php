@@ -226,6 +226,7 @@
     <?php     
        $team= $data["team"];
        foreach($team as $i=>$t):
+         if($i>2) break;
     ?>
     <div class="card02 d-flex flex-row justify-content-between">
       <div class="card02 d-flex flex-row justify-content-between">
@@ -234,12 +235,12 @@
           <div class="card-body p-3">
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center pb-3">
-                <h6 class="card-maroc m-0">Morocco National Team</h6>
+                <h6 class="card-maroc m-0"> <?=$t["TeamName"]?> National Team</h6>
                 <span class="group-style fw-bold px-2">Group F</span>
               </div>
               <p class="card-text fw-somibold">
                 <i class="bi bi-geo-alt-fill"></i>
-                Morocco
+                <?=$t["Country"]?>
               </p>
             </div>
           </div>
@@ -265,7 +266,7 @@
           $stadium= $data['stadium'];
             
           foreach($stadium as $i=> $s):
-            // if($i>3) break;
+           
 
 
           ?>
@@ -309,7 +310,7 @@
 
 <section>
   <div class="container">
-    <div class="d-flex flex-row justify-content-around align-items-center p-5">
+    <div class="d-flex flex-wrap gap-3 justify-content-around align-items-center p-5">
       <img src="<?= APP_URL ?>asset/img/partner1.png.svg" alt="">
       <img src="<?= APP_URL ?>asset/img/partner2.png.svg" alt="">
       <img src="<?= APP_URL ?>asset/img/partner3.png.svg" alt="">
@@ -318,7 +319,7 @@
       <img src="<?= APP_URL ?>asset/img/partner6.png.svg" alt="">
       <img src="<?= APP_URL ?>asset/img/partner7.png.svg" alt="">
       <img src="<?= APP_URL ?>asset/img/partner8.png.svg" alt="">
-      <img src="<?= APP_URL ?>asset/img/partner9.png.svg" alt="">
+      
     </div>
   </div>
 </section>

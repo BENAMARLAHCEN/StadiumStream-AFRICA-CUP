@@ -15,8 +15,7 @@ class HomeController extends Controller
         $stadium = $stadium->selectAllStadium();
         $teams = new Team();
         $team = $teams->selectAllTeam();
-        var_dump($team);
-        die;
+       
         $this->view('home',["match"=>$match , "stadium" =>$stadium , "team" => $team]);
 
     }
