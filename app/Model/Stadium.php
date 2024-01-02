@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-class Team extends Crud{
+class Stadium extends Crud{
 
     private int $id;
     public function __construct()
