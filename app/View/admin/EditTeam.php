@@ -7,28 +7,28 @@
             <form class="row g-3" method="post" action="../UpdateTeam">
                 <div class="col-md-12">
                     <div class="form-floating">
-                        <input value="<?=$data['team_name']?>" type="text" name="team_name" class="form-control" id="floatingName" placeholder="Team Name">
+                        <input value="<?=$data['TeamName']?>" type="text" name="TeamName" class="form-control" id="floatingName" placeholder="Team Name">
                         <label for="floatingName">Team Name</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input value="<?=$data['foundation_year']?>" type="date" name="foundation_year" class="form-control"  >
-                        <label >Foundation Year</label>
+                        <input value="<?=$data['country']?>" type="text" name="Country" class="form-control"  placeholder="Country">
+                        <label>Country</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input value="<?=$data['stadium_name']?>" type="text" name="stadium_name" class="form-control"  placeholder="Stadium Name">
-                        <label>Stadium Name</label>
+                        <input value="<?=$data['coach']?>" type="text" name="coach" class="form-control"  placeholder="coach">
+                        <label>coach</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <!-- <label>Team detail</label> -->
                     <div class="form-floating">
                         <!-- TinyMCE Editor -->
-                        <textarea name="team_detail	" class="tinymce-editor">
-                            <?=$data['team_detail']?>
+                        <textarea name="detail" class="tinymce-editor">
+                            <?=$data['detail']?>
                         </textarea>
                         
                         <!-- End TinyMCE Editor -->
@@ -37,7 +37,7 @@
                 
                 
                 <div class="text-center">
-                    <button type="submit" name="id" value="<?=$data['id']?>" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="TeamID" value="<?=$data['TeamID']?>" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </form><!-- End floating Labels Form -->
@@ -45,43 +45,3 @@
         </div>
     </div>
 </section>
-
-<!-- Add/Edit Team Modal -->
-<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
-    <!-- Your modal content for adding/editing team details goes here -->
-</div>
-
-
-
-<!-- Add/Edit Team Modal -->
-<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="teamModalLabel">Add/Edit Team</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="teamForm">
-                    <div class="mb-3">
-                        <label for="teamName" class="form-label">Team Name</label>
-                        <input type="text" class="form-control" id="teamName" name="teamName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="teamLeader" class="form-label">Team Leader</label>
-                        <input type="text" class="form-control" id="teamLeader" name="teamLeader" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="membersCount" class="form-label">Members Count</label>
-                        <input type="number" class="form-control" id="membersCount" name="membersCount" required>
-                    </div>
-                    <!-- Add hidden input field for team ID if needed for editing -->
-                    <input type="hidden" id="teamId" name="teamId">
-
-                    <!-- Add a submit button -->
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
