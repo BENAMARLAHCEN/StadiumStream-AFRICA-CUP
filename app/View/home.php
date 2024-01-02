@@ -91,16 +91,6 @@
     </div>
   </section>
 
-
-
-
-
-
-
-
-
-
-
 <section class="p-5">
   <div class="container">
     <div class="d-flex justify-content-around align-items-center search-section">
@@ -127,7 +117,7 @@
 <section>
   <div class="container">
     <!-- Title -->
-    <div class="d-flex flex-row justify-content-between p-3 nowrap">
+    <div class="d-flex flex-row justify-content-between p-3 ">
       <h2 class="fw-somibold">Upcoming Matchs</h2>
       <p class="wiew-all fw-medium">
         View All
@@ -138,7 +128,7 @@
       </p>
     </div>
     <!-- card Upcoming Matchs -->
-    <div class="card01 d-flex flex-row justify-content-between">
+    <div class="card01 d-flex flex-row justify-content-between flex-wrap">
       <div class="card01 d-flex flex-row justify-content-between">
         <div class="card01-border card col-md m-3">
           <img src="<?= APP_URL ?>asset/img/match01.svg" class="card-img-top p-2" alt="..." />
