@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 #username , #email, #message, #password, #confirmPassword {
     border: 1px solid #FF7900 ;
   }
   
   :root {
     --ma-couleur: #FF7900;
+    --font-family: 'Roboto', sans-serif;
 }
 body {
     margin: 0;
@@ -57,7 +60,7 @@ body {
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding: 6rem;
+    padding: 2rem;
 }
 
 .custom-text-color {
@@ -118,13 +121,6 @@ body {
     border: none;
     background-color: none;
     outline: none;
-}
-
-.btn-search {
-    background-color: var(--ma-couleur);
-    border-color: var(--ma-couleur);
-    color: #fff;
-    margin-right: 3rem;
 }
 
 .bi-search {
@@ -319,6 +315,14 @@ body {
     text-decoration: none;
     margin-left: 3rem;
 }
+.btn-search{
+    background-color: var(--ma-couleur);
+    color: #fff;
+    border:0.1rem solid var(--ma-couleur);
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    border-radius: 7px;
+    text-decoration: none;
+}
 
 .btn-primary2:hover{
     background-color:#34B233;
@@ -332,6 +336,9 @@ body {
 }
 .card-group{
     width: 35%;
+}
+.search-input{
+    outline: none;
 }
 @media screen and (max-width: 767px) {
     .bg-groups {

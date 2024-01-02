@@ -11,26 +11,27 @@
                   <h1>LOGIN</h1>
                   <h4 class="mt-1 mb-5 pb-1">Welcome Back Again !</h4>
                 </div>
-                <form>
+                <form method="post" action="<?=APP_URL?>Auth/loginUser">
 
                 <div class="mb-3">
-                      <input type="email" class="form-control p-2" id="email" placeholder="enter ur email">
+                      <input type="email" name="email" class="form-control p-2" id="email" placeholder="enter ur email">
                   </div>
 
                   <div class="mb-3">
-                      <input type="password" class="form-control p-2" id="password" placeholder="enter ur password">
+                      <input type="password" name="password" class="form-control p-2" id="password" placeholder="enter ur password">
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn-click btn-block fa-lg gradient-custom-2 mb-3 px-5 py-3" type="button">Login</button>
+                    <button class="btn-click btn-block fa-lg gradient-custom-2 mb-3 px-5 py-3" type="submit">Login</button>
                   </div>
 
-                  <div class="d-flex align-items-center justify-content-center pb-4">
+                  
+
+                </form>
+                <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account Yet?</p>
                     <button type="button" class="btn btn-outline-danger" >Sign-Up </button>
                   </div>
-
-                </form>
               </div>
 
 
