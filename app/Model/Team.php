@@ -10,18 +10,18 @@ class Team extends Crud{
     }
 
     public function selectAllTeam(){
-        return $this->selectRecords('teams');
+        return $this->selectRecords('team');
     }
     public function selectTeam($id){
-        return $this->selectRecords('teams','*','id = '.$id);
+        return $this->selectRecords('team','*','id = '.$id);
     }
     public function addTeam(array $data){
-        return $this->insertRecord('teams',$data);
+        return $this->insertRecord('team',$data);
     }
     public function DeleteTeam(int $id){
-        return $this->deleteRecord('teams',$id);
+        return $this->deleteRecord('team',$id);
     }
     public function UpdateTeam(array $data,int $id){
-        return $this->updateRecord('teams',$data,$id);
+        return $this->updateRecord('team',$data,$id);
     }
 }

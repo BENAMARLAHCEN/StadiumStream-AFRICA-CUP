@@ -16,10 +16,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Stadium Name</th>
-                                <th data-type="date" data-format="YYYY-DD-MM">Foundation Date</th>
-                                <th>team_detail</th>
+                                <th>Team Name</th>
+                                <th>Country</th>
+                                <th>Coach</th>
+                                <th>Detail</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -28,14 +28,14 @@
                             
                             foreach ($data as $row) {?>
                             <tr>
-                                <td><?=$row['id']?></td>
-                                <td><?=$row['team_name']?></td>
-                                <td><?=$row['foundation_year']?></td>
-                                <td><?=$row['stadium_name']?></td>
-                                <td><?=$row['team_detail']?></td>
+                                <td><?=$row['TeamID']?></td>
+                                <td><?=$row['TeamName']?></td>
+                                <td><?=$row['Country']?></td>
+                                <td><?=$row['coach']?></td>
+                                <td><?=$row['detail']?></td>
                                 <td>
-                                    <a href="./Team/Edit/<?=$row['id']?>" class="btn btn-info btn-sm edit-team">Edit</a>
-                                    <a href="./Team/DeleteTeam/<?=$row['id']?>" class="btn btn-danger btn-sm delete-team">Delete</a>
+                                    <a href="./Team/Edit/<?=$row['TeamID']?>" class="btn btn-info btn-sm edit-team">Edit</a>
+                                    <a href="./Team/DeleteTeam/<?=$row['TeamID']?>" class="btn btn-danger btn-sm delete-team">Delete</a>
                                 </td>
                             </tr>
                             <?php
