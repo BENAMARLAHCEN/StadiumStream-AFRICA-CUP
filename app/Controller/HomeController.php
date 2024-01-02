@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Model\MatchModel;
 use App\Model\Stadium;
+use App\Model\Team;
 class HomeController extends Controller
 {
     public function index()
@@ -10,9 +11,13 @@ class HomeController extends Controller
 
         $match=new MatchModel;
         $match= $match->selectMatch();
-        $stadiom = new Stadium();
-        $stadiom = $stadiom->selectAllStadium();
-        $this->view('home',["match"=>$match]);
+        $stadium = new Stadium();
+        $stadium = $stadium->selectAllStadium();
+        $teams = new Team();
+        $team = $teams->selectAllTeam();
+        var_dump($team);
+        die;
+        $this->view('home',["match"=>$match , "stadium" =>$stadium , "team" => $team]);
 
     }
 

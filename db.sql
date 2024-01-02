@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 02, 2024 at 01:38 PM
+-- Generation Time: Jan 02, 2024 at 03:44 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -144,16 +144,12 @@ CREATE TABLE `stadium` (
 --
 
 INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `image`) VALUES
-(1, 'National Stadium', 'Abidjan', 50000, '123 Main Street, Abidjan', '', ''),
-(2, 'Unity Stadium', 'Yamoussoukro', 45000, '456 Central Avenue, Yamoussoukro', '', ''),
-(3, 'Liberty Arena', 'Bouaké', 40000, '789 Freedom Road, Bouaké', '', ''),
-(4, 'Victory Park', 'Korhogo', 35000, '101 Winners Circle, Korhogo', '', ''),
-(5, 'Harmony Stadium', 'San Pedro', 30000, '222 Peaceful Lane, San Pedro', '', ''),
-(6, 'Serenity Arena', 'Daloa', 32000, '333 Tranquil Street, Daloa', '', ''),
-(7, 'Golden Stadium', 'Man', 28000, '444 Prosperity Avenue, Man', '', ''),
-(8, 'Emerald Field', 'Gagnoa', 26000, '555 Green Boulevard, Gagnoa', '', ''),
-(9, 'Royal Park', 'Bondoukou', 23000, '666 Regal Road, Bondoukou', '', ''),
-(10, 'Silver Park', 'Grand-Bassam', 21000, '777 Silver Street, Grand-Bassam', '', '');
+(1, 'ALASSANE OUATTARA D’EBIMPE', 'ABIDJAN', 60000, 'Abidjan, Côte d\'Ivoire', 'Le Stade Alassane-Ouattara, surnommé « stade olympique d\'Ébimpé »5, est un stade polyvalent, pouvant accueillir les compétitions de football, rugby et athlétisme, à Ébimpé et Anyama, au nord d\'Abidjan en Côte d\'Ivoire. C’est le stade de l\'équipe nationale de football de Côte d\'Ivoire.', 'abidjan.jpg'),
+(2, 'LA PAIX', 'BOUAKÉ', 40000, 'bouaké, Côte d\'Ivoire ', 'Le Stade de la Paix de Bouaké (depuis la cérémonie de la Flamme de la paix de 2007) est un stade de football de Côte d\'Ivoire qui se situe dans la ville de Bouaké. Il peut accueillir 40 000 spectateurs assis. Il a été spécialement construit pour accueillir, avec le Stade Félix Houphouët-Boigny, les matchs de la Coupe d\'Afrique des nations de football 1984.', 'bouake.jpg'),
+(3, 'AMADOU GON COULIBALY', 'KORHOGO', 20000, 'Korhogo, Côte d\'Ivoire', 'Located in the northern part of Cote D’Ivoire’s city of Korhogo, the Stadium of Korhogo is one of the legacies that will come with hosting an international event of the magnitude of the TotalEnergies Africa Cup of Nations Cote D’Ivoire 2023. ', 'korhogo.jpg'),
+(4, 'LAURENT POKOU', 'SAN PEDRO', 20000, 'San-Pédro, Côte d\'Ivoire', 'Laurent Pokou Stadium is a football stadium in San Pédro, Ivory Coast. The stadium has a capacity of 20,000 seats.[1] The Construction of the stadium began in September 2018.[2] The stadium will host matches for the 2023 Africa Cup of Nations, an international men\'s football competition across Africa.', 'san-pedro.jpg'),
+(5, 'CHARLES KONAN BANNY', 'YAMOUSSOUKRO', 20000, 'Rue du Lycée Scientifique, Côte d\'Ivoire', 'Charles Konan Banny Stadium (French: Stade Charles Konan Banny de Yamoussoukro) is a football stadium in Yamoussoukro, Ivory Coast that was inaugurated on 3 June 2022. This was the fourth among the six stadiums for the 2023 Africa Cup of Nations in Ivory Coast. It was designed by an association formed of Alcor, Sogea-Satom, Egis and Baudin Chateauneuf.', 'yamoussoukro.jpg'),
+(6, 'FÉLIX HOUPHOUËT-BOIGNY', 'ABIDJAN', 40000, 'Boulevard de le Republique, Abidjan, Côte d’Ivoire', 'Le Stade Félix-Houphouët-Boigny, surnommé « Le Félicia », est le stade national multifonctionnel (football, rugby, athlétisme) de Côte d\'Ivoire, du nom du fondateur de la nation ivoirienne, Félix Houphouët-Boigny. Situé dans la commune du Plateau d\'Abidjan, il a une capacité d\'environ 40 000 spectateurs. Il accueille les matchs de l\'Équipe Ivoirienne de football, ainsi que certains matchs du championnat national de football.', 'boigny.jpg');
 
 -- --------------------------------------------------------
 
@@ -166,38 +162,40 @@ CREATE TABLE `team` (
   `TeamName` varchar(255) NOT NULL,
   `Country` varchar(255) NOT NULL,
   `coatch` varchar(25) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT NULL
+  `logo` varchar(255) DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coatch`, `logo`) VALUES
-(1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI'),
-(2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW'),
-(3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG'),
-(4, 'Guinée équatoriale', 'Guinée équatoriale', 'kamba diawara', 'GQ'),
-(5, 'Egypte', 'Egypte', 'rui vitoria', 'EG'),
-(6, 'Mozambique', 'Mozambique', 'chiquinho conde', 'MZ'),
-(7, 'Ghana', 'Ghana', 'chris hughton', 'GH'),
-(8, 'Cap-Vert', 'Cap-Vert', 'nita nedio', 'CV'),
-(9, 'Sénégal', 'Sénégal', 'aliou cisse', 'SN'),
-(10, 'Gambie', 'Gambie', 'tom saintfiet', 'GM'),
-(11, 'Cameroun', 'Cameroun', 'rigobert song', 'CM'),
-(12, 'Guinée', 'Guinée', 'baciro cande', 'GN'),
-(13, 'Algérie', 'Algérie', 'djamel belmadi', 'DZ'),
-(14, 'Angola', 'Angola', 'pedro goncalves', 'AO'),
-(15, 'Burkina Faso', 'Burkina Faso', 'hubert velud', 'BF'),
-(16, 'Mauritanie', 'Mauritanie', 'amir abdou', 'MR'),
-(17, 'Tunisie', 'Tunisie', 'jaled kadri', 'TN'),
-(18, 'Namibie', 'Namibie', 'collin benjamin', 'NA'),
-(19, 'Mali', 'Mali', 'eric chelle', 'ML'),
-(20, 'Afrique du Sud', 'Afrique du Sud', 'rassie erasmus', 'ZA'),
-(21, 'Maroc', 'Maroc', 'oualid regragi', 'MA'),
-(22, 'Tanzanie', 'Tanzanie', 'tom badia', 'TZ'),
-(23, 'RDC', 'RDC', ' sebastien desabre', 'CD'),
-(24, 'Zambie', 'Zambie', 'avram grant', 'ZM');
+INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coatch`, `logo`, `image`, `detail`) VALUES
+(1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI', 'ivory-coast.jpg', ''),
+(2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW', 'guinea-bissau.jpg', ''),
+(3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG', 'Nigeria.jpg', ''),
+(4, 'Guinée équatoriale', 'Guinée équatoriale', 'kamba diawara', 'GQ', 'Equatorial-Guinea.jpg', ''),
+(5, 'Egypte', 'Egypte', 'rui vitoria', 'EG', 'Egypt.jpg', ''),
+(6, 'Mozambique', 'Mozambique', 'chiquinho conde', 'MZ', 'Mozambique.jpg', ''),
+(7, 'Ghana', 'Ghana', 'chris hughton', 'GH', 'Ghana.jpg', ''),
+(8, 'Cap-Vert', 'Cap-Vert', 'nita nedio', 'CV', 'Cape-Verde.jpg', ''),
+(9, 'Sénégal', 'Sénégal', 'aliou cisse', 'SN', 'Senegal.jpg', ''),
+(10, 'Gambie', 'Gambie', 'tom saintfiet', 'GM', 'Gambia.jpg', ''),
+(11, 'Cameroun', 'Cameroun', 'rigobert song', 'CM', 'Cameroon.jpg', ''),
+(12, 'Guinée', 'Guinée', 'baciro cande', 'GN', 'Guinea.jpg ', ''),
+(13, 'Algérie', 'Algérie', 'djamel belmadi', 'DZ', 'Algeria.jpg', ''),
+(14, 'Angola', 'Angola', 'pedro goncalves', 'AO', 'Angola.jpg', ''),
+(15, 'Burkina Faso', 'Burkina Faso', 'hubert velud', 'BF', 'burkina-faso.jpg', ''),
+(16, 'Mauritanie', 'Mauritanie', 'amir abdou', 'MR', 'Mauritania.jpg', ''),
+(17, 'Tunisie', 'Tunisie', 'jaled kadri', 'TN', 'Tunisia.jpg', ''),
+(18, 'Namibie', 'Namibie', 'collin benjamin', 'NA', 'Namibia.jpg', ''),
+(19, 'Mali', 'Mali', 'eric chelle', 'ML', 'Mali.jpg', ''),
+(20, 'Afrique du Sud', 'Afrique du Sud', 'rassie erasmus', 'ZA', 'South-Africa.jpg', ''),
+(21, 'Maroc', 'Maroc', 'oualid regragi', 'MA', 'Morocco.jpg', ''),
+(22, 'Tanzanie', 'Tanzanie', 'tom badia', 'TZ', 'Tanzania.jpg', ''),
+(23, 'RDC', 'RDC', ' sebastien desabre', 'CD', 'Congo.jpg', ''),
+(24, 'Zambie', 'Zambie', 'avram grant', 'ZM', 'Zambia.jpg', '');
 
 -- --------------------------------------------------------
 

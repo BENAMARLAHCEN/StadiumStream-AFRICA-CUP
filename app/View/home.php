@@ -91,16 +91,6 @@
     </div>
   </section>
 
-
-
-
-
-
-
-
-
-
-
 <section class="p-5">
   <div class="container">
     <div class="d-flex justify-content-around align-items-center search-section">
@@ -127,7 +117,7 @@
 <section>
   <div class="container">
     <!-- Title -->
-    <div class="d-flex flex-row justify-content-between p-3 nowrap">
+    <div class="d-flex flex-row justify-content-between p-3 ">
       <h2 class="fw-somibold">Upcoming Matchs</h2>
       <p class="wiew-all fw-medium">
         View All
@@ -233,10 +223,14 @@
       </p>
     </div>
     <!-- card Upcoming Matchs -->
+    <?php     
+       $team= $data["team"];
+       foreach($team as $i=>$t):
+    ?>
     <div class="card02 d-flex flex-row justify-content-between">
       <div class="card02 d-flex flex-row justify-content-between">
         <div class="card02-border col-md m-3">
-          <img src="<?= APP_URL ?>asset/img/Maroc.svg" class="card-img-top p-2" alt="..." />
+          <img src="<?= APP_URL ?>asset/img/imageTeam/<?=$t["image"]?>" class="card-img-top p-2" alt="..." />
           <div class="card-body p-3">
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center pb-3">
@@ -252,41 +246,7 @@
         </div>
       </div>
 
-      <div class="card02 d-flex flex-row justify-content-between">
-        <div class="card02-border col-md m-3">
-          <img src="<?= APP_URL ?>asset/img/southAfrica.svg" class="card-img-top p-2" alt="..." />
-          <div class="card-body p-3">
-            <div class="card-body">
-              <div class="d-flex flex-row justify-content-between align-items-center pb-3">
-                <h6 class="card-maroc m-0">South Africa National Team</h6>
-                <span class="group-style fw-bold px-2">Group E</span>
-              </div>
-              <p class="card-text fw-somibold">
-                <i class="bi bi-geo-alt-fill"></i>
-                South Africa
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card02 d-flex flex-row justify-content-between">
-        <div class="card02-border col-md m-3">
-          <img src="<?= APP_URL ?>asset/img/albums_matches_2219397_koo_9 1.svg" class="card-img-top p-2" alt="..." />
-          <div class="card-body p-3">
-            <div class="card-body">
-              <div class="d-flex flex-row justify-content-between align-items-center pb-3">
-                <h6 class="card-maroc m-0">Egypt National Team</h6>
-                <span class="group-style fw-bold px-2">Group B</span>
-              </div>
-              <p class="card-text fw-somibold">
-                <i class="bi bi-geo-alt-fill"></i>
-                Egypt
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <?php  endforeach; ?>
     </div>
   </div>
 </section>
@@ -299,64 +259,28 @@
       </div>
       <div class="col-md-12">
         <div class="featured-carousel owl-carousel p-3 ">
-          <div class="item p-3">
-            <div class="blog-entry">
-              <img src="<?= APP_URL ?>asset/img/abidjan.svg" class="card-img-top p-2" alt="..." />
-              <div class="p-4">
-                <div class="d-flex flex-row justify-content-start align-items-center">
-                  <span class="line-sadium mr-2"></span>
-                  <h6 class="card-title m-0">
-                    Stade Alassane Ouattara d’Ebimpe
-                  </h6>
-                </div>
-                <div class="Capacity">
-                  <p class="Capacity-color">Capacity:<span class="Capacity-color1"> 40,000.</span> </p>
-                </div>
-                <div class="d-flex align-items-center mt-4">
-                  <p class="mb-0">
-                    <a href="#" class="btn-primary1">Read More
-                      <span class="ion-ios-arrow-round-forward"></span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="item p-3">
-            <div class="blog-entry">
-              <img src="<?= APP_URL ?>asset/img/stade.svg" class="card-img-top p-2" alt="..." />
-              <div class="p-4">
-                <div class="d-flex flex-row justify-content-start align-items-center">
-                  <span class="line-sadium mr-2"></span>
-                  <h6 class="card-title m-0">
-                    Stade Alassane Ouattara d’Ebimpe
-                  </h6>
-                </div>
-                <div class="Capacity">
-                  <p class="Capacity-color">Capacity:<span class="Capacity-color1"> 60,000.</span> </p>
-                </div>
-                <div class="d-flex align-items-center mt-4">
-                  <p class="mb-0">
-                    <a href="#" class="btn-primary1">Read More
-                      <span class="ion-ios-arrow-round-forward"></span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php     
+          
+          $stadium= $data['stadium'];
+            
+          foreach($stadium as $i=> $s):
+            // if($i>3) break;
 
+
+          ?>
           <div class="item p-3">
             <div class="blog-entry">
-              <img src="<?= APP_URL ?>asset/img/abidjan.svg" class="card-img-top p-2" alt="..." />
+              <img src="<?= APP_URL ?>asset/img/imageStaduim/<?= $s['image']?>" class="card-img-top p-2" alt="..." />
               <div class="p-4">
                 <div class="d-flex flex-row justify-content-start align-items-center">
                   <span class="line-sadium mr-2"></span>
                   <h6 class="card-title m-0">
-                    Stade Laurent Pokou - San Pedro
+                   <?= $s['name'] ?>
                   </h6>
                 </div>
                 <div class="Capacity">
-                  <p class="Capacity-color">Capacity:<span class="Capacity-color1"> 40,000.</span> </p>
+                  <p class="Capacity-color">Capacity:<span class="Capacity-color1">   <?= $s['capacity'] ?></span> </p>
                 </div>
                 <div class="d-flex align-items-center mt-4">
                   <p class="mb-0">
@@ -367,6 +291,16 @@
               </div>
             </div>
           </div>
+   
+              <?php  
+              
+          endforeach;
+
+
+              ?>
+
+
+
         </div>
       </div>
     </div>
