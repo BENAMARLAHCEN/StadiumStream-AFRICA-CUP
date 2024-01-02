@@ -40,7 +40,7 @@ class Crud extends connection
             return null;
         }
     }
-    public function insertRecord(string $table, array $data)
+    public function insertRecord(string $table, array $data, string $where = null)
     {
         // Use prepared statements to prevent SQL injection
         $columns = implode(', ', array_keys($data));
@@ -50,6 +50,9 @@ class Crud extends connection
         try {
             $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
 
+            if ($where !== null) {
+                $sql .= " WHERE $where";
+            }
             $this->logQuery($sql);
 
             $stmt = $this->pdo->prepare($sql);
@@ -133,33 +136,5 @@ class Crud extends connection
         }
     }
 
-    // private function logError(PDOException $e)
-    // {
-    //     $logFilePath = dirname(__DIR__ . '../') . '\logs\error.log';
-    //     $errorMessage = "[" . date('Y-m-d H:i:s') . "] " . $e->getMessage() . "\n";
-    //     file_put_contents($logFilePath, $errorMessage, FILE_APPEND);
-    // }
 
-    // private function logQuery($query)
-    // {
-    //     $logFilePath = dirname(__DIR__ . '../') . '\logs\query.log';
-
-    //     $logMessage = "[" . date('Y-m-d H:i:s') . "] " .  $query . "\n";
-    //     file_put_contents($logFilePath, $logMessage, FILE_APPEND);
-    // }
 }
-
-// private function logError(PDOException $e)
-// {
-//     $logFilePath = LOG_URL . '\logs\error.log';
-//     $errorMessage = "[" . date('Y-m-d H:i:s') . "] " . $e->getMessage() . "\n";
-//     file_put_contents($logFilePath, $errorMessage, FILE_APPEND);
-// }
-
-// private function logQuery($query)
-// {
-//     $logFilePath = LOG_URL . '\logs\query.log';
-
-//     $logMessage = "[" . date('Y-m-d H:i:s') . "] " . $query . "\n";
-//     file_put_contents($logFilePath, $logMessage, FILE_APPEND);
-// }
