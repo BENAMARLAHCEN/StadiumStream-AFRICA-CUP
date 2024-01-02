@@ -16,11 +16,17 @@
         </a>
     </li>   
     <li class="nav-item">
-        <a class="nav-link <?php if ($URI[0] !== 'Match') echo 'collapsed' ?>" href="Match">
+        <a class="nav-link <?php if ($URI[0] !== 'Match') echo 'collapsed' ?>" href="<?=asset('Match')?>">
             <i class="bi bi-grid"></i>
             <span>Match & Champing</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link <?php if ($URI[0] !== 'Stadium') echo 'collapsed' ?>" href="<?=asset('Stadium')?>">
+            <i class="bi bi-grid"></i>
+            <span>Stadium Management</span>
+        </a>
+    </li>  
     <li class="nav-item ">
         <a class="nav-link <?php if ($URI[0] !== 'User') echo 'collapsed' ?>" href="UserManager">
             <i class="bi bi-grid"></i>

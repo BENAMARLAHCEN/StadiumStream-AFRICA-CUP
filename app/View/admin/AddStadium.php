@@ -5,12 +5,6 @@
 
             <!-- Floating Labels Form -->
             <form class="row g-3" method="post" action="./AddStadium" enctype="multipart/form-data" >
-                <div class="col-md-12">
-                    <div class="form-floating">
-                        <input type="text" name="name" class="form-control" id="floatingName" placeholder="Stadium Name">
-                        <label for="floatingName">Stadium Name</label>
-                    </div>
-                </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" name="name" class="form-control"  placeholder="Stadium Name">
@@ -35,7 +29,7 @@
                 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" name="adress" class="form-control"  placeholder="adress">
+                        <input type="text" name="address" class="form-control"  placeholder="adress">
                         <label>Adress</label>
                     </div>
                 </div>
@@ -55,7 +49,7 @@
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="file" class="form-control" name="stadium_image" id="floatingCity" >
+                            <input type="file" class="form-control" name="image" id="floatingCity" >
                             <label for="floatingCity">Stadium Image</label>
                         </div>
                     </div>
