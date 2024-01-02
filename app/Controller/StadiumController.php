@@ -27,24 +27,24 @@ class StadiumController extends Controller
 
     public function AddStadium()
     {
-        // $newStadium = new Stadium;
+        $newStadium = new Stadium;
         
-        // $logo = $_FILES['logo']['name'];
-        // $logo_tmp_name = $_FILES['logo']['tmp_name'];
-        // $logo_folder = __DIR__."\\..\\..\\public\\asset\\uploads\\" . $logo;
-        // unset($_POST['logo']);
-        // $_POST['logo'] = $logo;
-        // if (empty($logo)) {
-        //     echo "image that you have entered is note exist!";
-        // } else if ($newTeam->addTeam($_POST)) {
+        $image = $_FILES['image']['name'];
+        $image_tmp_name = $_FILES['image']['tmp_name'];
+        $image_folder = __DIR__."\\..\\..\\public\\asset\\uploads\\" . $image;
+        unset($_POST['image']);
+        $_POST['image'] = $image;
+        if (empty($image)) {
+            echo "image that you have entered is note exist!";
+        } else if ($newStadium->addStadium($_POST)) {
 
-        //     if (move_uploaded_file($logo_tmp_name, $logo_folder)) {
-        //         header('location:../Team');
-        //     }
+            if (move_uploaded_file($image_tmp_name, $image_folder)) {
+                header('location:../Stadium');
+            }
             
-        // } else {
-        //     header('location:Add');
-        // }
+        } else {
+            header('location:Add');
+        }
     }
 
     public function DeleteStadium($id)
