@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Controller;
-
+use App\Model\MatchModel;
 class HomeController extends Controller
 {
     public function index()
-    {
-        $this->view('home');
+    {   
+
+        $match=new MatchModel;
+        $match= $match->selectMatch();
+       
+        $this->view('home',["match"=>$match]);
+
     }
 
     public function match()
