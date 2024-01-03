@@ -7,13 +7,13 @@
             <form class="row g-3" method="post" action="./AddMatch" enctype="multipart/form-data" >
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="TeamName" class="form-control" placeholder="Team Name">
+                        <select name="Team1ID" class="form-control" placeholder="Team Name">
                        <option selected disabled value="">select team a</option>
 
                             <?php
                             $team = $data["team"];
                             foreach ($team as $row) {?>
-                            <option value="<?=$row['TeamID']?>"><?=$row['TeamName']?></option>
+                            <option value="<?=$row['id']?>"><?=$row['TeamName']?></option>
                             <?php
                             }?>
                         </select>
@@ -23,11 +23,11 @@
 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="TeamName" class="form-control" placeholder="Team Name">
+                        <select name="Team2ID" class="form-control" placeholder="Team Name">
                        <option selected disabled value="">select team b</option>
                             <?php
                             foreach ($team as $row) {?>
-                            <option value="<?=$row['TeamID']?>"><?=$row['TeamName']?></option>
+                            <option value="<?=$row['id']?>"><?=$row['TeamName']?></option>
                             <?php
                             }?>
                         </select>
@@ -53,13 +53,13 @@
 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="datetime-local" name="MatchDate Time" class="form-control"  >
+                        <input type="datetime-local" name="MatchDateTime" class="form-control"  >
                         <label >Match Date</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="name" class="form-control" placeholder="Stadium Name">
+                        <select name="stadium_id" class="form-control" placeholder="Stadium Name">
                         <option selected disabled value="">Select Stadium</option>
                             <?php
                             

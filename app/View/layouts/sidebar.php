@@ -16,7 +16,7 @@
         </a>
     </li>   
     <li class="nav-item">
-        <a class="nav-link <?php if ($URI[0] !== 'Match') echo 'collapsed' ?>" href="<?=asset('Match')?>">
+        <a class="nav-link <?php if ($URI[0] !== 'Match') echo 'collapsed' ?>" href="<?=asset('Matche')?>">
             <i class="bi bi-grid"></i>
             <span>Match & Champing</span>
         </a>

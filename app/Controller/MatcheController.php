@@ -24,32 +24,21 @@ class MatcheController extends Controller
     }
     
     public function Edit($id)
-    {
-        $matches = new Matche;
-        $matche = $matches->selectMatche($id);
-        $this->adminView('EditStadium', $matche[0]);
+    {   $team = new Team;
+        $team = $team->selectAllTeam();
+        $stadium = new Stadium;
+        $stadium = $stadium->selectAllStadium();
+        $oldMatch=new MatchModel();
+        $oldMatch=$oldMatch->selectMatch($id);
+        $this->adminView('EditStadium', ["team"=>$team,"stadium"=> $stadium,"oldMatch"=>$oldMatch]);
     }
 
-    public function AddStadium()
-    {
+    public function AddMatch()
+    {   
+         if($_SERVER["REQUEST_METHOD"]=="POST"){
         $newMatche = new Matche;
-        
-        $image = $_FILES['image']['name'];
-        $image_tmp_name = $_FILES['image']['tmp_name'];
-        $image_folder = __DIR__."\\..\\..\\public\\asset\\uploads\\" . $image;
-        unset($_POST['image']);
-        $_POST['image'] = $image;
-        if (empty($image)) {
-            echo "image that you have entered is note exist!";
-        } else if ($newStadium->addStadium($_POST)) {
-
-            if (move_uploaded_file($image_tmp_name, $image_folder)) {
-                header('location:../Stadium');
-            }
-            
-        } else {
-            header('location:Add');
-        }
+        if($newMatche->addMatche($_POST))  header("Location:../");
+     }
     }
 
     public function DeleteMatch($id)
