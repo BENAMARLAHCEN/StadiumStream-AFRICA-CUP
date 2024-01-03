@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 03, 2024 at 10:23 AM
+-- Generation Time: Jan 03, 2024 at 03:49 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -222,8 +222,17 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role_id` int DEFAULT NULL,
-  `VerifyCode` int DEFAULT NULL
+  `VerifyCode` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image` varchar(300) NOT NULL DEFAULT 'profil.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `role_id`, `VerifyCode`, `image`) VALUES
+(3, 'khalid oukha', 'ginsan.ben3@gmail.com', '$2y$10$9ii7qLvtmPupXcrwwf4Z4Or6MEkvzpZOh9xXAKWH4Y1WwFTZfmhNq', 2, 'valid', 'profil.jpg'),
+(4, 'nada el', 'elmahfoudinada17@gmail.com', '$2y$10$swG8d.9PDX04FjbPuTGsj.4SjHvdtHrcNwjSeP48QeCGUvlL2A7Zq', 2, 'valid', 'profil.jpg');
 
 --
 -- Indexes for dumped tables
@@ -310,7 +319,7 @@ ALTER TABLE `stadium`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -322,7 +331,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
