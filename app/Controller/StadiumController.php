@@ -59,6 +59,17 @@ class StadiumController extends Controller
     public function UpdateStadium()
     {
         $newStadium = new Stadium;
+        $image = $_FILES['image']['name'];
+        $image_tmp_name = $_FILES['image']['tmp_name'];
+        $image_folder = __DIR__."\\..\\..\\public\\asset\\img\\imageStaduim\\" . $image;
+        unset($_POST['image']);
+       
+        
+        if (!empty($image)) {
+            $_POST['image'] = $image;
+            if (move_uploaded_file($image_tmp_name, $image_folder)) {
+            }
+        }
         $id = $_POST['id'];
         unset($_POST['id']);
         if ($newStadium->UpdateStadium($_POST, $id)) {

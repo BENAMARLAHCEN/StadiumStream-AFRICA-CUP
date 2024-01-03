@@ -27,7 +27,7 @@
               </div>
               <!-- <div class="text-center"><a href="" class="btn border border-dotted  mt-5 py-3 px-5 fs-5">Reserve</a></div> -->
               <button type="button" class="btn btn-success mt-5 py-3 px-5 fs-5  " data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" style=""><a href="" class="reserve">Reserve</a></button>
+                data-bs-target="#staticBackdrop" style=""><a  class="reserve">Reserve</a></button>
 
             </div>
           </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 02, 2024 at 03:44 PM
+-- Generation Time: Jan 03, 2024 at 10:23 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `matche` (
-  `MatchID` int NOT NULL,
+  `id` int NOT NULL,
   `Team1ID` int DEFAULT NULL,
   `Team2ID` int DEFAULT NULL,
   `MatchDateTime` datetime NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `matche` (
 -- Dumping data for table `matche`
 --
 
-INSERT INTO `matche` (`MatchID`, `Team1ID`, `Team2ID`, `MatchDateTime`, `Result`, `GroupID`, `stadium_id`) VALUES
+INSERT INTO `matche` (`id`, `Team1ID`, `Team2ID`, `MatchDateTime`, `Result`, `GroupID`, `stadium_id`) VALUES
 (1, 1, 2, '2024-01-13 20:00:00', NULL, 'A', 1),
 (2, 3, 4, '2024-01-13 14:00:00', NULL, 'A', 1),
 (3, 5, 6, '2024-01-14 17:00:00', NULL, 'B', 2),
@@ -149,7 +149,7 @@ INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `i
 (3, 'AMADOU GON COULIBALY', 'KORHOGO', 20000, 'Korhogo, Côte d\'Ivoire', 'Located in the northern part of Cote D’Ivoire’s city of Korhogo, the Stadium of Korhogo is one of the legacies that will come with hosting an international event of the magnitude of the TotalEnergies Africa Cup of Nations Cote D’Ivoire 2023. ', 'korhogo.jpg'),
 (4, 'LAURENT POKOU', 'SAN PEDRO', 20000, 'San-Pédro, Côte d\'Ivoire', 'Laurent Pokou Stadium is a football stadium in San Pédro, Ivory Coast. The stadium has a capacity of 20,000 seats.[1] The Construction of the stadium began in September 2018.[2] The stadium will host matches for the 2023 Africa Cup of Nations, an international men\'s football competition across Africa.', 'san-pedro.jpg'),
 (5, 'CHARLES KONAN BANNY', 'YAMOUSSOUKRO', 20000, 'Rue du Lycée Scientifique, Côte d\'Ivoire', 'Charles Konan Banny Stadium (French: Stade Charles Konan Banny de Yamoussoukro) is a football stadium in Yamoussoukro, Ivory Coast that was inaugurated on 3 June 2022. This was the fourth among the six stadiums for the 2023 Africa Cup of Nations in Ivory Coast. It was designed by an association formed of Alcor, Sogea-Satom, Egis and Baudin Chateauneuf.', 'yamoussoukro.jpg'),
-(6, 'FÉLIX HOUPHOUËT-BOIGNY', 'ABIDJAN', 40000, 'Boulevard de le Republique, Abidjan, Côte d’Ivoire', 'Le Stade Félix-Houphouët-Boigny, surnommé « Le Félicia », est le stade national multifonctionnel (football, rugby, athlétisme) de Côte d\'Ivoire, du nom du fondateur de la nation ivoirienne, Félix Houphouët-Boigny. Situé dans la commune du Plateau d\'Abidjan, il a une capacité d\'environ 40 000 spectateurs. Il accueille les matchs de l\'Équipe Ivoirienne de football, ainsi que certains matchs du championnat national de football.', 'boigny.jpg');
+(6, 'FÉLIX HOUPHOUËT-BOIGNY', 'ABIDJAN', 40000, 'Boulevard de la Republique, Abidjan, Côte d’Ivoire', '<p>Le Stade F&eacute;lix-Houphou&euml;t-Boigny, surnomm&eacute; &laquo; Le F&eacute;licia &raquo;, est le stade national multifonctionnel (football, rugby, athl&eacute;tisme) de C&ocirc;te d\'Ivoire, du nom du fondateur de la nation ivoirienne, F&eacute;lix Houphou&euml;t-Boigny. Situ&eacute; dans la commune du Plateau d\'Abidjan, il a une capacit&eacute; d\'environ 40 000 spectateurs. Il accueille les matchs de l\'&Eacute;quipe Ivoirienne de football, ainsi que certains matchs du championnat national de football.a</p>', 'low-fdlt.png');
 
 -- --------------------------------------------------------
 
@@ -158,10 +158,10 @@ INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `i
 --
 
 CREATE TABLE `team` (
-  `TeamID` int NOT NULL,
+  `id` int NOT NULL,
   `TeamName` varchar(255) NOT NULL,
   `Country` varchar(255) NOT NULL,
-  `coatch` varchar(25) DEFAULT NULL,
+  `coach` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `detail` text NOT NULL
@@ -171,7 +171,7 @@ CREATE TABLE `team` (
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coatch`, `logo`, `image`, `detail`) VALUES
+INSERT INTO `team` (`id`, `TeamName`, `Country`, `coach`, `logo`, `image`, `detail`) VALUES
 (1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI', 'ivory-coast.jpg', ''),
 (2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW', 'guinea-bissau.jpg', ''),
 (3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG', 'Nigeria.jpg', ''),
@@ -221,7 +221,8 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role_id` int DEFAULT NULL
+  `role_id` int DEFAULT NULL,
+  `VerifyCode` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -232,7 +233,7 @@ CREATE TABLE `user` (
 -- Indexes for table `matche`
 --
 ALTER TABLE `matche`
-  ADD PRIMARY KEY (`MatchID`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Team1` (`Team1ID`),
   ADD KEY `FK_Team2` (`Team2ID`),
   ADD KEY `matches_ibfk_1` (`stadium_id`);
@@ -260,7 +261,7 @@ ALTER TABLE `stadium`
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`TeamID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ticket`
@@ -285,7 +286,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `matche`
 --
 ALTER TABLE `matche`
-  MODIFY `MatchID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `reservation`
@@ -309,7 +310,7 @@ ALTER TABLE `stadium`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `TeamID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -331,8 +332,8 @@ ALTER TABLE `user`
 -- Constraints for table `matche`
 --
 ALTER TABLE `matche`
-  ADD CONSTRAINT `FK_Team1` FOREIGN KEY (`Team1ID`) REFERENCES `team` (`TeamID`),
-  ADD CONSTRAINT `FK_Team2` FOREIGN KEY (`Team2ID`) REFERENCES `team` (`TeamID`),
+  ADD CONSTRAINT `FK_Team1` FOREIGN KEY (`Team1ID`) REFERENCES `team` (`id`),
+  ADD CONSTRAINT `FK_Team2` FOREIGN KEY (`Team2ID`) REFERENCES `team` (`id`),
   ADD CONSTRAINT `matche_ibfk_1` FOREIGN KEY (`stadium_id`) REFERENCES `stadium` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
@@ -346,7 +347,7 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`matchID`) REFERENCES `matche` (`MatchID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`matchID`) REFERENCES `matche` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

@@ -12,21 +12,21 @@ class MatchModel extends Connection
     function selectMatch($id = null)
     {  
         if ($id != null) {
-            $where = "MatchID = :MatchID";
+            $where = "id = :id";
             $id += 0;
         } else {
             $where = "1";
         }
     try{
-        $sql = "SELECT MatchID, A.TeamName AS teamA , A.logo AS logoA , B.logo AS logoB,  B.TeamName AS teamB, MatchDateTime , Result, GroupID , stadium.name AS stadiomName ,stadium.city 
-                  FROM matche INNER JOIN team A INNER JOIN team B INNER JOIN stadium ON A.TeamID = matche.Team1ID AND  B.TeamID = matche.Team2ID 
+        $sql = "SELECT matche.id as id , A.TeamName AS teamA , A.logo AS logoA , B.logo AS logoB,  B.TeamName AS teamB, MatchDateTime , Result, GroupID , stadium.name AS stadiomName ,stadium.city 
+                  FROM matche INNER JOIN team A INNER JOIN team B INNER JOIN stadium ON A.id = matche.Team1ID AND  B.id = matche.Team2ID 
                   AND stadium.id=matche.stadium_id
                  WHERE {$where}
                   ORDER BY matche.MatchDateTime ASC ;";
     
         $stmt = $this->pdo->prepare($sql);
         if ($id != null) {
-            $stmt->bindParam(":MatchID", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         }
         
         $result = $stmt->execute();
@@ -41,9 +41,9 @@ class MatchModel extends Connection
     function   delete($id){
         try{
         $id+=0;
-        $sql = "DELETE FROM matche WHERE MatchID:MatchID ;";
+        $sql = "DELETE FROM matche WHERE id:id ;";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(":MatchID", $id, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $res = $stmt->execute();
         if($res) return true;
         else return false;}
