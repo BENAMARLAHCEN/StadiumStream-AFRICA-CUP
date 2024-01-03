@@ -4,7 +4,7 @@
             <h5 class="card-title">Floating labels Form</h5>
 
             <!-- Floating Labels Form -->
-            <form class="row g-3" method="post" action="./AddStadium" enctype="multipart/form-data" >
+            <form class="row g-3" method="post" action="./AddUser" enctype="multipart/form-data" >
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" name="name" class="form-control"  placeholder="Name">
