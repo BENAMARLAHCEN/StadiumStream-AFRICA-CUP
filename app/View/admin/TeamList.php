@@ -28,14 +28,14 @@
                             
                             foreach ($data as $row) {?>
                             <tr>
-                                <td><?=$row['TeamID']?></td>
+                                <td><?=$row['id']?></td>
                                 <td><?=$row['TeamName']?></td>
                                 <td><?=$row['Country']?></td>
                                 <td><?=$row['coach']?></td>
                                 <td><?=$row['detail']?></td>
                                 <td>
-                                    <a href="./Team/Edit/<?=$row['TeamID']?>" class="btn btn-info btn-sm edit-team">Edit</a>
-                                    <a href="./Team/DeleteTeam/<?=$row['TeamID']?>" class="btn btn-danger btn-sm delete-team">Delete</a>
+                                    <a href="./Team/Edit/<?=$row['id']?>" class="btn btn-info btn-sm edit-team">Edit</a>
+                                    <a href="./Team/DeleteTeam/<?=$row['id']?>" class="btn btn-danger btn-sm delete-team">Delete</a>
                                 </td>
                             </tr>
                             <?php
