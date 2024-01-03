@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 03, 2024 at 09:35 AM
+-- Generation Time: Jan 03, 2024 at 10:23 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `matche` (
-  `MatchID` int NOT NULL,
+  `id` int NOT NULL,
   `Team1ID` int DEFAULT NULL,
   `Team2ID` int DEFAULT NULL,
   `MatchDateTime` datetime NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `matche` (
 -- Dumping data for table `matche`
 --
 
-INSERT INTO `matche` (`MatchID`, `Team1ID`, `Team2ID`, `MatchDateTime`, `Result`, `GroupID`, `stadium_id`) VALUES
+INSERT INTO `matche` (`id`, `Team1ID`, `Team2ID`, `MatchDateTime`, `Result`, `GroupID`, `stadium_id`) VALUES
 (1, 1, 2, '2024-01-13 20:00:00', NULL, 'A', 1),
 (2, 3, 4, '2024-01-13 14:00:00', NULL, 'A', 1),
 (3, 5, 6, '2024-01-14 17:00:00', NULL, 'B', 2),
@@ -158,7 +158,7 @@ INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `i
 --
 
 CREATE TABLE `team` (
-  `TeamID` int NOT NULL,
+  `id` int NOT NULL,
   `TeamName` varchar(255) NOT NULL,
   `Country` varchar(255) NOT NULL,
   `coach` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE `team` (
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coach`, `logo`, `image`, `detail`) VALUES
+INSERT INTO `team` (`id`, `TeamName`, `Country`, `coach`, `logo`, `image`, `detail`) VALUES
 (1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI', 'ivory-coast.jpg', ''),
 (2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW', 'guinea-bissau.jpg', ''),
 (3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG', 'Nigeria.jpg', ''),
@@ -233,7 +233,7 @@ CREATE TABLE `user` (
 -- Indexes for table `matche`
 --
 ALTER TABLE `matche`
-  ADD PRIMARY KEY (`MatchID`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Team1` (`Team1ID`),
   ADD KEY `FK_Team2` (`Team2ID`),
   ADD KEY `matches_ibfk_1` (`stadium_id`);
@@ -261,7 +261,7 @@ ALTER TABLE `stadium`
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`TeamID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ticket`
@@ -286,7 +286,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `matche`
 --
 ALTER TABLE `matche`
-  MODIFY `MatchID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `reservation`
@@ -310,7 +310,7 @@ ALTER TABLE `stadium`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `TeamID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -332,8 +332,8 @@ ALTER TABLE `user`
 -- Constraints for table `matche`
 --
 ALTER TABLE `matche`
-  ADD CONSTRAINT `FK_Team1` FOREIGN KEY (`Team1ID`) REFERENCES `team` (`TeamID`),
-  ADD CONSTRAINT `FK_Team2` FOREIGN KEY (`Team2ID`) REFERENCES `team` (`TeamID`),
+  ADD CONSTRAINT `FK_Team1` FOREIGN KEY (`Team1ID`) REFERENCES `team` (`id`),
+  ADD CONSTRAINT `FK_Team2` FOREIGN KEY (`Team2ID`) REFERENCES `team` (`id`),
   ADD CONSTRAINT `matche_ibfk_1` FOREIGN KEY (`stadium_id`) REFERENCES `stadium` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
@@ -347,7 +347,7 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`matchID`) REFERENCES `matche` (`MatchID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`matchID`) REFERENCES `matche` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

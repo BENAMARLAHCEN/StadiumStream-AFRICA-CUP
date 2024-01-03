@@ -130,7 +130,7 @@
     <!-- card Upcoming Matchs -->
     <div class="card01 d-flex flex-wrap justify-content-center">
         <?php     
-            $match= $data['match'];
+            $match= $data['matche'];
             
           foreach($match as $i=> $m):
             if($i>3) break;
@@ -167,7 +167,7 @@
                 </svg>
                 <i><?=$m->stadiomName?> <?=$m->city?></i>
               </p>
-              <a href="./match/reserve/<?=$m->MatchID?>" class="To-book btn btn-primary">
+              <a href="./match/reserve/<?=$m->id?>" class="To-book btn btn-primary">
                 <i  class="bi bi-ticket-fill"></i>Book Ticket
               </a>
             </div>
