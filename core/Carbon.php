@@ -6,12 +6,10 @@ class Carbons
 {
     public function checkRemainingDays($data)
     {
-        $matchDateTime = Carbon::parse($data['MatchDateTime']);
+        $matchDateTime = Carbon::parse($data);
         $currentDateTime = Carbon::now();
         $remainingDays = $currentDateTime->diffInDays($matchDateTime);
 
-        if ($remainingDays !== 2) {
-            throw new Exception("The match must have exactly two days remaining.");
-        }
+        return $remainingDays;
     }
 }
