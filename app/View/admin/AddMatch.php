@@ -53,17 +53,7 @@
                 }
             <?php } ?>
         });
-        $("#slectTeamB").change(function() {
-            var selectedTeam1 = $(this).val();
 
-            $("#slectTeamA").html('<option selected disabled value="">select team b</option>');
-
-            <?php foreach ($team as $row) { ?>
-                if ("<?=$row['id']?>" !== selectedTeam1) {
-                    $("#slectTeamA").append('<option value="<?=$row['id']?>"><?=$row['TeamName']?></option>');
-                }
-            <?php } ?>
-        });
     });
 </script>
                 <div class="col-md-6">
