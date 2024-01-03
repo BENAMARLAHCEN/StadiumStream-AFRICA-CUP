@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 02, 2024 at 03:44 PM
+-- Generation Time: Jan 03, 2024 at 09:35 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -149,7 +149,7 @@ INSERT INTO `stadium` (`id`, `name`, `city`, `capacity`, `address`, `detail`, `i
 (3, 'AMADOU GON COULIBALY', 'KORHOGO', 20000, 'Korhogo, Côte d\'Ivoire', 'Located in the northern part of Cote D’Ivoire’s city of Korhogo, the Stadium of Korhogo is one of the legacies that will come with hosting an international event of the magnitude of the TotalEnergies Africa Cup of Nations Cote D’Ivoire 2023. ', 'korhogo.jpg'),
 (4, 'LAURENT POKOU', 'SAN PEDRO', 20000, 'San-Pédro, Côte d\'Ivoire', 'Laurent Pokou Stadium is a football stadium in San Pédro, Ivory Coast. The stadium has a capacity of 20,000 seats.[1] The Construction of the stadium began in September 2018.[2] The stadium will host matches for the 2023 Africa Cup of Nations, an international men\'s football competition across Africa.', 'san-pedro.jpg'),
 (5, 'CHARLES KONAN BANNY', 'YAMOUSSOUKRO', 20000, 'Rue du Lycée Scientifique, Côte d\'Ivoire', 'Charles Konan Banny Stadium (French: Stade Charles Konan Banny de Yamoussoukro) is a football stadium in Yamoussoukro, Ivory Coast that was inaugurated on 3 June 2022. This was the fourth among the six stadiums for the 2023 Africa Cup of Nations in Ivory Coast. It was designed by an association formed of Alcor, Sogea-Satom, Egis and Baudin Chateauneuf.', 'yamoussoukro.jpg'),
-(6, 'FÉLIX HOUPHOUËT-BOIGNY', 'ABIDJAN', 40000, 'Boulevard de le Republique, Abidjan, Côte d’Ivoire', 'Le Stade Félix-Houphouët-Boigny, surnommé « Le Félicia », est le stade national multifonctionnel (football, rugby, athlétisme) de Côte d\'Ivoire, du nom du fondateur de la nation ivoirienne, Félix Houphouët-Boigny. Situé dans la commune du Plateau d\'Abidjan, il a une capacité d\'environ 40 000 spectateurs. Il accueille les matchs de l\'Équipe Ivoirienne de football, ainsi que certains matchs du championnat national de football.', 'boigny.jpg');
+(6, 'FÉLIX HOUPHOUËT-BOIGNY', 'ABIDJAN', 40000, 'Boulevard de la Republique, Abidjan, Côte d’Ivoire', '<p>Le Stade F&eacute;lix-Houphou&euml;t-Boigny, surnomm&eacute; &laquo; Le F&eacute;licia &raquo;, est le stade national multifonctionnel (football, rugby, athl&eacute;tisme) de C&ocirc;te d\'Ivoire, du nom du fondateur de la nation ivoirienne, F&eacute;lix Houphou&euml;t-Boigny. Situ&eacute; dans la commune du Plateau d\'Abidjan, il a une capacit&eacute; d\'environ 40 000 spectateurs. Il accueille les matchs de l\'&Eacute;quipe Ivoirienne de football, ainsi que certains matchs du championnat national de football.a</p>', 'low-fdlt.png');
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,7 @@ CREATE TABLE `team` (
   `TeamID` int NOT NULL,
   `TeamName` varchar(255) NOT NULL,
   `Country` varchar(255) NOT NULL,
-  `coatch` varchar(25) DEFAULT NULL,
+  `coach` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `detail` text NOT NULL
@@ -171,7 +171,7 @@ CREATE TABLE `team` (
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coatch`, `logo`, `image`, `detail`) VALUES
+INSERT INTO `team` (`TeamID`, `TeamName`, `Country`, `coach`, `logo`, `image`, `detail`) VALUES
 (1, 'Côte d’Ivoire', 'Côte d’Ivoire', 'louis gasset', 'CI', 'ivory-coast.jpg', ''),
 (2, 'Guinée-Bissau', 'Guinée-Bissau', 'baciro cande', 'GW', 'guinea-bissau.jpg', ''),
 (3, 'Nigeria', 'Nigeria', 'jose peseiro', 'NG', 'Nigeria.jpg', ''),
@@ -221,7 +221,8 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role_id` int DEFAULT NULL
+  `role_id` int DEFAULT NULL,
+  `VerifyCode` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
