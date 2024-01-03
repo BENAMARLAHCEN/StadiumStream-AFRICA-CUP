@@ -60,7 +60,7 @@
                       <input type="number" name="number_of_ticket" class="form-control" id="inputPassword" value="1" required>
                     </div>
                   </div>
-                   <input type="hidden" value="<?=$data[0]->MatchID?>" name="id_match" >
+                   <input type="hidden" value="<?=$data[0]->id?>" name="id" >
                   <div class="mb-3 row">
                     <div  class="col-sm-10" >
                   <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" required >

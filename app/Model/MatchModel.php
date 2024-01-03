@@ -12,7 +12,7 @@ class MatchModel extends Connection
     function selectMatch($id = null)
     {  
         if ($id != null) {
-            $where = "id = :id";
+            $where = "matche.id = :id";
             $id += 0;
         } else {
             $where = "1";
