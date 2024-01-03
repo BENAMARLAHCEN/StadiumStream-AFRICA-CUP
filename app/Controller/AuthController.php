@@ -35,7 +35,7 @@ class AuthController extends Controller
     //         $userlog = $this->user->selectUser($email);
     //         if (count($userlog) != 0) {
     //             if (password_verify($password, $userlog['password'])) {
-                
+
     //             if ($userlog['token'] != null) {
     //                 $_SESSION['token'] = $token;
     //             }
@@ -46,40 +46,41 @@ class AuthController extends Controller
 
     //             if ($_SESSION['roleUser'] == 1) header("location:" . APP_URL."Team");
     //             if ($_SESSION['roleUser'] == 2)  header("location:" . APP_URL);
-                
+
     //         }
     //         }
     //     }
     // }
     public function loginUser()
-{
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        extract($_POST);
-        $userlog = $this->user->selectUser($email);
-        if ($userlog !== null) { // Check if $userlog is not null
-            if (password_verify($password, $userlog['password'])) {
-                if ($userlog['token'] != null) {
-                    $_SESSION['token'] = $userlog['token']; // Assign token value to session
-                }
-                $_SESSION['idUser'] = $userlog['id'];
-                $_SESSION['roleUser'] = $userlog['role_id'];
-                $_SESSION['emailUser'] = $userlog['email'];
-                $_SESSION['nameUser'] = $userlog["name"];
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            extract($_POST);
+            $userlog = $this->user->selectUser($email)[0];
+            if ($userlog !== null) { // Check if $userlog is not null 
+                if (password_verify($password, $userlog['password'])) {
+                    
+                    if ($userlog['VerifyCode'] != 'valid') {
+                        $_SESSION['VerifyCode'] = $userlog['VerifyCode']; // Assign token value to session
+                    }
+                    $_SESSION['idUser'] = $userlog['id'];
+                    $_SESSION['roleUser'] = $userlog['role_id'];
+                    $_SESSION['emailUser'] = $userlog['email'];
+                    $_SESSION['nameUser'] = $userlog["name"];
 
-                if ($_SESSION['roleUser'] == 1) {
-                    header("location:" . APP_URL."Team");
-                    exit(); // Terminate script after redirection
-                }
-                if ($_SESSION['roleUser'] == 2) {
-                    header("location:" . APP_URL);
-                    exit(); // Terminate script after redirection
+                    if ($_SESSION['roleUser'] == 1) {
+                        header("location:" . APP_URL . "Team");
+                        exit(); // Terminate script after redirection
+                    }
+                    if ($_SESSION['roleUser'] == 2) {
+                        header("location:" . APP_URL);
+                        exit(); // Terminate script after redirection
+                    }
                 }
             }
         }
+        // Handle cases where login fails or $_SERVER['REQUEST_METHOD'] != 'POST'
+        // Add appropriate actions, such as error messages or redirection to a login page.
     }
-    // Handle cases where login fails or $_SERVER['REQUEST_METHOD'] != 'POST'
-    // Add appropriate actions, such as error messages or redirection to a login page.
-}
 
 
     public static function emailVerfy()
@@ -113,7 +114,7 @@ class AuthController extends Controller
                 $this->user->setRoleId(2);
                 $this->user->setVerifyCode($generatedID);
                 if ($this->user->registerUser()) {
-                    
+
                     $message = "<body class='bg-light'><div class='container'>
                     <div style='display: flex; justify-content: center;'>
                     <img class='ax-center my-10' style='width: 80px;' src='https://assets.bootstrapemail.com/logos/light/square.png' />
@@ -123,10 +124,12 @@ class AuthController extends Controller
                     <span style='color: red; font-size: 30px; font-weight: bold;'>" . $generatedID . "</span><br><br>
                     Please use this code to complete the verification process. If you have any 
                     questions or encounter any issues, feel free to contact our support team.
-                    </p><a class='btn btn-primary p-3 fw-700' href='".APP_URL."'>Visit Website</a>
+                    </p><a class='btn btn-primary p-3 fw-700' href='" . APP_URL . "'>Visit Website</a>
                     </div></div></body>";
                     PhpMailerSend::sendMail($this->user->getFullName(), "valid email", $message, $this->user->getEmail());
-                    header("location:" . APP_URL);
+                    $_SESSION['emailUser'] = $this->user->getEmail();
+                    $_SESSION['VerifyCode'] = $generatedID; // Assign token value to session
+                    header("location:" . APP_URL . "Auth/Verify");
                 }
             } else {
                 echo "errors";
@@ -136,14 +139,19 @@ class AuthController extends Controller
         }
     }
 
-    public function verfyEmailRegistre($dataForm)
-    {
-        $verfy = $dataForm['verfyEmail'];
-        if ($verfy == $_SESSION['generateID']) {
-            extract($_SESSION['tempPostRegister']);
-            $roleuserID = 2;
-            // $result=LoginModel::RegistreUserSucces($name,$email,$password,$roleuserID);
-            if ($result) return 'home';
-        } else return 'emailVerfy';
+    public function verfyEmailRegistre()
+    {  
+        $verfyCode = $_POST['verfyEmail'];
+        $email = $_SESSION['emailUser'];
+        $verfy = $_SESSION['VerifyCode'];
+        if ($verfyCode === $verfy) {
+            if ($this->user->verfyEmailAccept($email)) {
+                session_unset();
+                session_destroy();
+                header("location:" . APP_URL."Auth/login");
+            }else {
+                echo "hbiiui";
+            }
+        } else header("location:" . APP_URL . "Auth/Verify");
     }
 }

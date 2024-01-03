@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" name='submit'value='verfyEmailRegistre' type="submit">Verfy</button>
+                      <button class="btn btn-primary w-100" name='submit' type="submit">Verfy</button>
                     </div>
                   </form>
 

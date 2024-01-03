@@ -82,12 +82,13 @@ class User extends Crud
 
     public function selectUser($email)
     {
-        return $this->selectRecords('user', '*', 'email = ' . $email);
+        return $this->selectRecords('user', '*', 'email = ' .'"'.$email.'"');
     }
-    public function insertToken($token, $email)
-    {
-        echo $this->selectUser($email)['id'];
-        exit;
-        return $this->updateRecord('user', ['token' => $token], $this->selectUser($email)['id']);
+
+
+    public function verfyEmailAccept($email){
+        $email = $this->selectUser($email);
+        return $this->updateRecord('user',['VerifyCode' => 'valid'],$email[0]['id']);
     }
+    
 }
