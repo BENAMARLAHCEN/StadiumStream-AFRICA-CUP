@@ -7,7 +7,7 @@
             <form class="row g-3" method="post" action="./AddMatch" enctype="multipart/form-data" >
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="Team1ID" class="form-control" placeholder="Team Name">
+                        <select name="Team1ID" class="form-control" id="slectTeamA" placeholder="Team Name">
                        <option selected disabled value="">select team a</option>
 
                             <?php
@@ -23,18 +23,49 @@
 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="Team2ID" class="form-control" placeholder="Team Name">
+                        <select name="Team2ID" class="form-control" id="slectTeamB" placeholder="Team Name">
                        <option selected disabled value="">select team b</option>
-                            <?php
+                       <?php
+                            $team = $data["team"];
                             foreach ($team as $row) {?>
                             <option value="<?=$row['id']?>"><?=$row['TeamName']?></option>
                             <?php
                             }?>
+                
                         </select>
                         <label for="name">Team2 Name</label>
                     </div>
                 </div>
-                
+
+
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+                <script>
+    $(document).ready(function() {
+        $("#slectTeamA").change(function() {
+            var selectedTeam1 = $(this).val();
+
+            $("#slectTeamB").html('<option selected disabled value="">select team b</option>');
+
+            <?php foreach ($team as $row) { ?>
+                if ("<?=$row['id']?>" !== selectedTeam1) {
+                    $("#slectTeamB").append('<option value="<?=$row['id']?>"><?=$row['TeamName']?></option>');
+                }
+            <?php } ?>
+        });
+        $("#slectTeamB").change(function() {
+            var selectedTeam1 = $(this).val();
+
+            $("#slectTeamA").html('<option selected disabled value="">select team b</option>');
+
+            <?php foreach ($team as $row) { ?>
+                if ("<?=$row['id']?>" !== selectedTeam1) {
+                    $("#slectTeamA").append('<option value="<?=$row['id']?>"><?=$row['TeamName']?></option>');
+                }
+            <?php } ?>
+        });
+    });
+</script>
                 <div class="col-md-6">
                     <div class="form-floating">
                        
