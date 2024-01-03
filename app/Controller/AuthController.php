@@ -66,6 +66,7 @@ class AuthController extends Controller
                     $_SESSION['roleUser'] = $userlog['role_id'];
                     $_SESSION['emailUser'] = $userlog['email'];
                     $_SESSION['nameUser'] = $userlog["name"];
+                    $_SESSION['userimage'] = $userlog["image"];
 
                     if ($_SESSION['roleUser'] == 1) {
                         header("location:" . APP_URL . "Team");
@@ -153,5 +154,10 @@ class AuthController extends Controller
                 echo "hbiiui";
             }
         } else header("location:" . APP_URL . "Auth/Verify");
+    }
+
+    public function logout(){
+        session_destroy();
+        header("location:" . APP_URL."Auth/login");
     }
 }
