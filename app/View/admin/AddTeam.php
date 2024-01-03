@@ -34,6 +34,22 @@
                         
                         <!-- End TinyMCE Editor -->
                     </div>
+                </div>
+                <div class="col-md-6">
+                    
+                        <div class="form-floating">
+                            <input type="file" class="form-control" name="image" id="floatingCity" >
+                            <label for="floatingCity">Team Image</label>
+                        </div>
+                    
+                </div> 
+                <div class="col-md-6">
+                    
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="logo" id="floatingCity" >
+                            <label for="floatingCity">Team Logo</label>
+                        </div>
+                    
                 </div> 
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
