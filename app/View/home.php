@@ -74,7 +74,7 @@
             </h2>
             <a href="#" class="btn btn-primary2 btn-lg text-white" style="background-color: #FF7900; padding-left: 15px;">READ MORE <span class="ion-ios-arrow-round-forward"></span></a>
             <a href="#" class="btn btn-primary3 btn-lg mt-2 mt-lg-0" style="background-color: transparent; border: 2px solid white; color: white;">GOW NOW ! <span class="ion-ios-arrow-round-forward"></span></a>
-            <div class="mt-3 mt-lg-5 d-flex flex-wrap">
+            <div class="mt-3 mt-lg-5 d-flex flex-wrap" style="gap: 1.83rem;">
               <a href="#" class="media me-2 mb-2"><i class="bi bi-facebook bi-social bg-white w-100% social-icon"></i></a>
               <a href="#" class="media me-2 mb-2"><i class="bi bi-twitter-x bi-social bg-white social-icon"></i></a>
               <a href="#" class="media me-2 mb-2"><i class="bi bi-instagram bi-social bg-white social-icon"></i></a>
@@ -294,14 +294,9 @@
           </div>
    
               <?php  
-              
+             
           endforeach;
-
-
               ?>
-
-
-
         </div>
       </div>
     </div>

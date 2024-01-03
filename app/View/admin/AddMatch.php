@@ -8,9 +8,12 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="TeamName" class="form-control" placeholder="Team Name">
+                       <option selected disabled value="">select team a</option>
+
                             <?php
+                            $team = $data["team"];
                             foreach ($team as $row) {?>
-                            <option value="<?=$row['id']?>"><?=$row['TeamName']?></option>
+                            <option value="<?=$row['TeamID']?>"><?=$row['TeamName']?></option>
                             <?php
                             }?>
                         </select>
@@ -21,10 +24,10 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="TeamName" class="form-control" placeholder="Team Name">
-                 
+                       <option selected disabled value="">select team b</option>
                             <?php
                             foreach ($team as $row) {?>
-                            <option value="<?=$row['id']?>"><?=$row['TeamName']?></option>
+                            <option value="<?=$row['TeamID']?>"><?=$row['TeamName']?></option>
                             <?php
                             }?>
                         </select>
@@ -34,22 +37,33 @@
                 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" name="Result" class="form-control"  placeholder="Result">
+                       
+                        <select name="GroupID" class="form-control" >
+                            <option selected disabled value="">Select Group</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                        </select>
                         <label>Match's result</label>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="date" name="MatchDate Time" class="form-control"  >
+                        <input type="datetime-local" name="MatchDate Time" class="form-control"  >
                         <label >Match Date</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="name" class="form-control" placeholder="Stadium Name">
-                 
+                        <option selected disabled value="">Select Stadium</option>
                             <?php
+                            
+                            $stadium = $data["stadium"];
                             foreach ($stadium as $row) {?>
                             <option value="<?=$row['id']?>"><?=$row['name']?></option>
                             <?php

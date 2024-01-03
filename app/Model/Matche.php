@@ -9,19 +9,19 @@ class Matche extends Crud{
         parent::__construct();
     }
 
-    public function selectAllStadium(){
+    public function selectAllMatche(){
         return $this->selectRecords('matche');
     }
-    public function selectStadium($id){
+    public function selectMatche($id){
         return $this->selectRecords('matche','*','MatchID = '.$id);
     }
-    public function addStadium(array $data){
+    public function addMatche(array $data){
         return $this->insertRecord('matche',$data);
     }
-    public function DeleteStadium(int $id){
+    public function DeleteMatche(int $id){
         return $this->deleteRecord('matche',$id);
     }
-    public function UpdateStadium(array $data,int $id){
+    public function UpdateMatche(array $data,int $id){
         return $this->updateRecord('matche',$data,$id);
     }
 }

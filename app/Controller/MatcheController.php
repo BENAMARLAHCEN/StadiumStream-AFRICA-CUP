@@ -3,31 +3,36 @@
 namespace App\Controller;
 
 use App\Model\Matche;
-
-class StadiumController extends Controller
+use App\Model\MatchModel;
+use App\Model\Team;
+use App\Model\Stadium;
+class MatcheController extends Controller
 {
     public function index()
     {
-        $matches = new Matche;
-        $matche = $matches->selectAllStadium();
+        $matches = new MatchModel;
+        $matche = $matches->selectMatch();
         $this->adminView('MatchList', $matche);
     }
     public function Add()
     {
-
-        $this->adminView('AddMatch');
+        $team = new Team;
+        $team = $team->selectAllTeam();
+        $stadium = new Stadium;
+        $stadium = $stadium->selectAllStadium();
+        $this->adminView('AddMatch',["team"=>$team,"stadium"=> $stadium]);
     }
     
     public function Edit($id)
     {
-        $stadiums = new Matche;
-        $stadium = $stadiums->selectStadium($id);
-        $this->adminView('EditStadium', $stadium[0]);
+        $matches = new Matche;
+        $matche = $matches->selectMatche($id);
+        $this->adminView('EditStadium', $matche[0]);
     }
 
     public function AddStadium()
     {
-        $newStadium = new Stadium;
+        $newMatche = new Matche;
         
         $image = $_FILES['image']['name'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
@@ -47,33 +52,33 @@ class StadiumController extends Controller
         }
     }
 
-    public function DeleteStadium($id)
+    public function DeleteMatch($id)
     {
-        $newStadium = new Stadium;
-        if ($newStadium->DeleteStadium($id)) {
-            header('location:../../Stadium');
+        $newStadium = new Matche;
+        if ($newStadium->DeleteMatche($id)) {
+            header('location:../../Matche');
         } else {
             header('location:../errors');
         }
     }
     public function UpdateStadium()
     {
-        $newStadium = new Stadium;
+        $newStadium = new Matche;
         $id = $_POST['id'];
         unset($_POST['id']);
-        if ($newStadium->UpdateStadium($_POST, $id)) {
+        if ($newStadium->UpdateMatche($_POST, $id)) {
             header('location:../Stadium');
         } else {
             header('location:errors');
         }
     }
 
-    public function deletStadium()
+    public function deletMatche()
     {
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            $delete = new Stadium;
-            if ($delete->DeleteStadium($id) === false) {
+            $delete = new Matche;
+            if ($delete->DeleteMatche($id) === false) {
             } else {
                 $this->index();
             }
