@@ -1,4 +1,4 @@
-<main>
+
     <div class="container">
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -8,8 +8,8 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <img src="<?=APP_URL?>asset/img/SStream.svg" alt="">
+                  <!-- <span class="d-none d-lg-block">Stadium Stream</span> -->
                 </a>
               </div><!-- End Logo -->
 
@@ -22,7 +22,7 @@
                     <p class="text-center small">Enter the verification Code We Sent To Your Email. </p>
                   </div>
 
-                  <form class="row g-3 needs-validation" method="post" action='index.php'>
+                  <form class="row g-3 needs-validation" method="post" action='<?=APP_URL?>Auth/verfyEmailRegistre'>
 
                     <div class="col-12">
                       <label style='font-weight: bold;' class="form-label">CODE VERFY : </label>
@@ -37,13 +37,7 @@
                 </div>
               </div>
 
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+        
 
             </div>
           </div>
@@ -52,4 +46,4 @@
       </section>
 
     </div>
-  </main><!-- End #main -->
+ 
