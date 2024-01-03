@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-5 d-flex justify-content-center">
+        <div class="col-lg-5 d-none d-md-flex justify-content-center ">
           <div class="position-relative">
             <img src="<?= APP_URL ?>asset/img/logo_coupe.svg" alt="logo Coupe D'afrique" class="img-fluid" />
           </div>
@@ -223,15 +223,16 @@
       </p>
     </div>
     <!-- card Upcoming Matchs -->
+    
     <?php     
        $team= $data["team"];
        foreach($team as $i=>$t):
          if($i>2) break;
     ?>
-    <div class="card02 d-flex flex-row justify-content-between">
-      <div class="card02 d-flex flex-row justify-content-between">
+    <div  class="card02 d-flex flex-wrap justify-content-center">
+      <div  style="width:25rem;"   class="card02 d-flex flex-row justify-content-between">
         <div class="card02-border col-md m-3">
-          <img src="<?= APP_URL ?>asset/img/imageTeam/<?=$t["image"]?>" class="card-img-top p-2" alt="..." />
+          <img style="border-radius:1rem 1rem" src="<?= APP_URL ?>asset/img/imageTeam/<?=$t["image"]?>" class="card-img-top p-2" alt="..." />
           <div class="card-body p-3">
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center pb-3">
@@ -248,7 +249,8 @@
       </div>
 
        <?php  endforeach; ?>
-    </div>
+       </div>
+    
   </div>
 </section>
 
@@ -272,7 +274,7 @@
           ?>
           <div class="item p-3">
             <div class="blog-entry">
-              <img src="<?= APP_URL ?>asset/img/imageStaduim/<?= $s['image']?>" class="card-img-top p-2" alt="..." />
+              <img style="border-radius:1rem 1rem" src="<?= APP_URL ?>asset/img/imageStaduim/<?= $s['image']?>" class="card-img-top p-2" alt="..." />
               <div class="p-4">
                 <div class="d-flex flex-row justify-content-start align-items-center">
                   <span class="line-sadium mr-2"></span>
