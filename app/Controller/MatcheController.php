@@ -6,7 +6,7 @@ use App\Model\Matche;
 use App\Model\MatchModel;
 use App\Model\Team;
 use App\Model\Stadium;
-use Core\Carbons;
+use core\Carbons;
 class MatcheController extends Controller
 {
     public function index()
@@ -46,11 +46,13 @@ class MatcheController extends Controller
               $date = $_POST["MatchDateTime"];
 
              $deffDAY= $carbon->checkRemainingDays($date);
+            
              if($deffDAY<2) {
                 session_start();
                 $_SESSION['errorMessage'] = "please enter a date above a 3 days";
                 
-            header("Location:./");
+            header("Location:../matche/Add");
+            exit;
              }
 
             header("Location:../matche");

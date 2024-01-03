@@ -1,3 +1,14 @@
+<?php  
+   if(isset($_SESSION['errorMessage'])):
+    ?>
+<div class="alert alert-danger" role="alert">
+  <?=$_SESSION['errorMessage']?>
+</div>
+<?php 
+unset($_SESSION['errorMessage']);
+
+
+endif; ?>
 <section class="section dashboard">
     <div class="card">
         <div class="card-body">
