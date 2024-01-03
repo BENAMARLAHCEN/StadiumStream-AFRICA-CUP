@@ -6,7 +6,8 @@ use App\Model\Matche;
 use App\Model\MatchModel;
 use App\Model\Team;
 use App\Model\Stadium;
-use Core\Carbons;
+use core\Carbons;
+use Exception;
 class MatcheController extends Controller
 {
     public function index()
@@ -16,12 +17,14 @@ class MatcheController extends Controller
         $this->adminView('MatchList', $matche);
     }
     public function Add()
-    {  
+    {    
+        session_start();
         $team = new Team;
         $team = $team->selectAllTeam();
         $stadium = new Stadium;
         $stadium = $stadium->selectAllStadium();
         $this->adminView('AddMatch',["team"=>$team,"stadium"=> $stadium]);
+        session_destroy();
     }
     
     public function Edit($id)
@@ -34,30 +37,7 @@ class MatcheController extends Controller
         $this->adminView('EditStadium', ["team"=>$team,"stadium"=> $stadium,"oldMatch"=>$oldMatch]);
     }
 
-    public function AddMatch()
-    {   
-       
-         if($_SERVER["REQUEST_METHOD"]=="POST"){
-
-           
-        $newMatche = new Matche;
-        if($newMatche->addMatche($_POST)) {
-              $carbon =  new Carbons;
-              $date = $_POST["MatchDateTime"];
-
-             $deffDAY= $carbon->checkRemainingDays($date);
-             if($deffDAY<2) {
-                session_start();
-                $_SESSION['errorMessage'] = "please enter a date above a 3 days";
-                
-            header("Location:./");
-             }
-
-            header("Location:../matche");
-            exit;
-        }
-     }
-    }
+ 
 
     public function DeleteMatch($id)
     {

@@ -8,7 +8,7 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="Team1ID" class="form-control" id="slectTeamA" placeholder="Team Name">
-                       <option selected disabled value="">select team a</option>
+                       <option selected disabled value="">Select Team 1</option>
 
                             <?php
                             $team = $data["team"];
@@ -17,14 +17,14 @@
                             <?php
                             }?>
                         </select>
-                        <label for="name">Team1 Name</label>
+                        <label for="name">Team 1 Name</label>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="Team2ID" class="form-control" id="slectTeamB" placeholder="Team Name">
-                       <option selected disabled value="">select team b</option>
+                       <option selected disabled value="">Select Team 2</option>
                        <?php
                             $team = $data["team"];
                             foreach ($team as $row) {?>
@@ -33,7 +33,7 @@
                             }?>
                 
                         </select>
-                        <label for="name">Team2 Name</label>
+                        <label for="name">Team 2 Name</label>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
                             <option value="E">E</option>
                             <option value="F">F</option>
                         </select>
-                        <label>Match's result</label>
+                        <label>Group</label>
                     </div>
                 </div>
 
