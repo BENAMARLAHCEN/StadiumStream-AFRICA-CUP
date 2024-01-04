@@ -30,11 +30,11 @@ class MatcheController extends Controller
     public function Edit($id)
     {   $team = new Team;
         $team = $team->selectAllTeam();
-        $stadium = new Stadium;
-        $stadium = $stadium->selectAllStadium();
+        $matche = new Stadium;
+        $matche = $matche->selectAllStadium();
         $oldMatch=new MatchModel();
         $oldMatch=$oldMatch->selectMatch($id);
-        $this->adminView('EditStadium', ["team"=>$team,"stadium"=> $stadium,"oldMatch"=>$oldMatch]);
+        $this->adminView('EditMatch', ["team"=>$team,"stadium"=> $matche,"oldMatch"=>$oldMatch]);
     }
 
     public function AddMatch()
@@ -66,20 +66,20 @@ class MatcheController extends Controller
 
     public function DeleteMatch($id)
     {
-        $newStadium = new Matche;
-        if ($newStadium->DeleteMatche($id)) {
+        $newMatche = new Matche;
+        if ($newMatche->DeleteMatche($id)) {
             header('location:../../Matche');
         } else {
             header('location:../errors');
         }
     }
-    public function UpdateStadium()
+    public function UpdateMatche()
     {
-        $newStadium = new Matche;
+        $newMatche = new Matche;
         $id = $_POST['id'];
         unset($_POST['id']);
-        if ($newStadium->UpdateMatche($_POST, $id)) {
-            header('location:../Stadium');
+        if ($newMatche->UpdateMatche($_POST, $id)) {
+            header('location:../Matche');
         } else {
             header('location:errors');
         }

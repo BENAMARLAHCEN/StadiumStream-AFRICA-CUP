@@ -1,7 +1,6 @@
 <?php
 namespace Core; 
 use Carbon\Carbon; 
-use Exception;
 class Carbons 
 {
     public function checkRemainingDays($data)

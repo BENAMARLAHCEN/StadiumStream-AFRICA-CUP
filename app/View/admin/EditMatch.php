@@ -4,12 +4,11 @@
             <h5 class="card-title">Floating labels Form</h5>
 
             <!-- Floating Labels Form -->
-            <form class="row g-3" method="post" action="./AddMatch" enctype="multipart/form-data" >
+            <form class="row g-3" method="post" action="../UpdateMatche" enctype="multipart/form-data" >
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <select name="Team1ID" class="form-control" placeholder="Team Name">
+                        <select name="Team1ID" class="form-control" placeholder="Team Name" >
                        <option selected disabled value="">select team a</option>
-
                             <?php
                             $oldMatch=$data["oldMatch"];
                             $team = $data["team"];
