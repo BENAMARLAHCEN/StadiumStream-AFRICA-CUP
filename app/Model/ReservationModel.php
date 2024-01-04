@@ -32,12 +32,65 @@ class ReservationModel extends Connection
 
                    } else $status =false;
                 }
-                if($status) echo "its work";
-                else echo "somthing is wrong";
+                if($status) return $id_reservation;
+                else return false;
             } else
                 return false;
         } catch (PDOException $e) {
             echo "failed" . $e->getMessage();
         }
     }
+
+    function getTiket($reservId){
+           
+        $sql = "SELECT
+            A.TeamName AS teamA,
+            A.logo AS logoA,
+            B.logo AS logoB,
+            B.TeamName AS teamB,
+            MatchDateTime,
+            GroupID,
+            user.email,
+            user.name,
+            s.name AS stadium_name,
+            s.city,
+            s.address
+        FROM
+            reservation AS r
+            INNER JOIN
+            ticket ON ticket.id_reservation = r.id 
+        INNER JOIN
+            matche AS m ON ticket.matchID = m.id
+        INNER JOIN
+            user ON user.id = r.id_user
+        INNER JOIN
+            stadium AS s ON s.id = m.stadium_id
+        
+        INNER JOIN
+            team AS A ON A.id = m.Team1ID
+        INNER JOIN
+            team AS B ON B.id = m.Team2ID
+        WHERE
+            r.id = :id";
+        $reservId += 0;
+       
+      
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $reservId, PDO::PARAM_INT);
+        $stmt->execute();
+        $tickets = $stmt->fetchAll( PDO::FETCH_ASSOC);
+        return $tickets;
+    }
+
+    function ticketRest($id_match){
+        $id_match+=0;
+        $sql = "SELECT (SELECT capacity FROM stadium INNER join matche ON stadium.id=matche.stadium_id WHERE matche.id = 2) 
+        -COUNT(*) as ticketRest FROM ticket WHERE matchID = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id_match, PDO::PARAM_INT);
+        $stmt->execute();
+        $reset = $stmt->fetch(PDO::FETCH_OBJ)->ticketRest;
+        return $reset;
+    }
+   
 }
