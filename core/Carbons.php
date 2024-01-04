@@ -9,7 +9,11 @@ class Carbons
         $matchDateTime = Carbon::parse($data);
         $currentDateTime = Carbon::now();
         $remainingDays = $currentDateTime->diffInDays($matchDateTime);
-
+    
+        if ($matchDateTime->isPast()) {
+            $remainingDays *= -1;
+        }
+    
         return $remainingDays;
     }
 }

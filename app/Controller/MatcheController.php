@@ -6,7 +6,8 @@ use App\Model\Matche;
 use App\Model\MatchModel;
 use App\Model\Team;
 use App\Model\Stadium;
-use Core\Carbons;
+use core\Carbons;
+use Exception;
 class MatcheController extends Controller
 {
     public function index()
@@ -16,12 +17,14 @@ class MatcheController extends Controller
         $this->adminView('MatchList', $matche);
     }
     public function Add()
-    {  
+    {    
+        session_start();
         $team = new Team;
         $team = $team->selectAllTeam();
         $stadium = new Stadium;
         $stadium = $stadium->selectAllStadium();
         $this->adminView('AddMatch',["team"=>$team,"stadium"=> $stadium]);
+        session_destroy();
     }
     
     public function Edit($id)
@@ -44,17 +47,31 @@ class MatcheController extends Controller
         if($newMatche->addMatche($_POST)) {
               $carbon =  new Carbons;
               $date = $_POST["MatchDateTime"];
-
+              $status=true;
+              $message = "";
              $deffDAY= $carbon->checkRemainingDays($date);
-             if($deffDAY<2) {
-                session_start();
-                $_SESSION['errorMessage'] = "please enter a date above a 3 days";
-                
-            header("Location:./");
-             }
+             session_start();
+            
+             if(empty($_POST["Team1ID"])||empty($_POST["Team2ID"])||empty($_POST["stadium_id"])
+             ||empty($_POST["GroupID"])||empty($_POST["MatchDateTime"])){
+                $message = "please enter all data <br>";
+                $status=false;
+            } else if($deffDAY<2) {
 
-            header("Location:../matche");
+               
+                $message .="please enter a date above a 3 days <br>";
+                $status=false;
+             }
+             if($status){
+                $_SESSION['succesMessage'] = "the match addes with succes";
+            header("Location:" . APP_URL . "matche");
             exit;
+             }else{
+            
+              $_SESSION['errorMessage'] = $message;
+             header("Location:" . APP_URL . "matche/Add");
+            exit;
+           }
         }
      }
     }
