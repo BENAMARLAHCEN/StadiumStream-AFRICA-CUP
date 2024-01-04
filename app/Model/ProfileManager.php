@@ -22,10 +22,10 @@ class ProfileManager
         return $result;
 
     }
-    public function updateProfile($id, $username, $email)
+    public function updateProfile($id, $username, $email,$image , $password)
     {
-        $sql = "UPDATE user SET name = :name, email = :email WHERE id = :id";
-        $params = array(':id' => $id, ':name' => $username, ':email' => $email);
+        $sql = "UPDATE user SET name = :name, email = :email, image = :image , password = :password WHERE id = :id";
+        $params = array(':id' => $id, ':name' => $username, ':email' => $email, ':image' => $image, ':password' => $password);
         $stmt = $this->db->prepare($sql);
         return $stmt->execute($params);
         

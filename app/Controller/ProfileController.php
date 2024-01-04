@@ -22,35 +22,29 @@ class ProfileController extends Controller
         $id = $_SESSION['idUser'];
         $fullName = $_POST['name'];
         $email = $_POST['email'];
-
+        $password = $_POST['password'];
+    
+        $image = $_FILES['image']['name'];
+        $image_tmp_name = $_FILES['image']['tmp_name'];
+        $image_folder = __DIR__ . "\\..\\..\\public\\asset\\uploads\\userimage\\" . $image;
+    
+        if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            echo "Failed to upload image.";
+            return;
+        }
+    
         $profileManager = new ProfileManager();
-        $success = $profileManager->updateProfile($id, $fullName, $email);
-
-        if ($success) {
-            header('Location:'.APP_URL.'profile');
-            exit;
+        if ($profileManager->updateProfile($id, $fullName, $email, $image, $password)) {
+            if (move_uploaded_file($image_tmp_name, $image_folder)) {
+                header('Location:' . APP_URL . 'profile');
+                exit;
+            } else {
+                echo "Failed to move uploaded image.";
+            }
         } else {
             echo "Failed to update user information.";
         }
     }
+    
 
-
-
-    public function updateImage()
-    {
-        $id = $_SESSION['idUser'];
-        $image = $_POST['image'];
-
-        $imageManager = new ImageManager();
-        $imageManager->updateImage($id, $image);
-    }
-
-    public function updatePassword()
-    {
-        $id = $_SESSION['idUser'];
-        $password = $_POST['password'];
-
-        $passwordManager = new PasswordManager();
-        $passwordManager->updatePassword($id, $password);
-    }
 }

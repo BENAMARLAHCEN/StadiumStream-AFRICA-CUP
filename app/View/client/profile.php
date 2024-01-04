@@ -14,7 +14,7 @@
           <div class="card" >
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="<?=$data['image']?>" alt="Profile" class="rounded-circle">
+              <img src="<?= APP_URL ?>asset/uploads/userimage/<?=$data["image"]?>" alt="Profile" class="rounded-circle">
               <h2 style="color: #FF7900"><?=$data['name']?></h2>
               <h3 style="color: #FF7900">Web Designer</h3>
               <div class="social-links mt-2">
@@ -76,14 +76,13 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form method='post' action="<?=APP_URL?>profile/saveChanges" >
+                  <form method='post' action="<?=APP_URL?>profile/saveChanges" enctype="multipart/form-data">
                     <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                      <label for="image" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="<?=$data['image']?>" alt="Profile">
+                        <img src="<?= APP_URL ?>asset/uploads/userimage/<?=$data["image"]?>" alt="Profile" >
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                          <input type="file" name= "image" value="<?= $row['image']?>"><i class="bi bi-upload"></i></a>
                         </div>
                       </div>
                     </div>
@@ -99,6 +98,13 @@
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="email" type="email" class="form-control" id="Email" value="<?=$data['email']?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password" type="password" class="form-control" id="currentPassword" value="<?=$data['password']?>">
                       </div>
                     </div>
 
@@ -153,7 +159,7 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form>
+                  <form method='post' action="<?=APP_URL?>profile/saveChanges" >
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
@@ -165,14 +171,14 @@
                     <div class="row mb-3">
                       <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                        <input name="password" type="password" class="form-control" id="newPassword" value="<?=$data['password']?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <input name="password" type="password" class="form-control" id="renewPassword" value="<?=$data['password']?>">
                       </div>
                     </div>
 
