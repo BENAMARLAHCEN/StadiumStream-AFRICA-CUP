@@ -14,18 +14,27 @@ class ProfileController extends Controller
         $profileManager = new ProfileManager();
         $userInfo = $profileManager->getUserInfo($id);
 
-        $this->ClientView('profile');
+        $this->ClientView('profile',$userInfo);
     }
 
-    public function updateProfile()
+    public function saveChanges()
     {
         $id = $_SESSION['idUser'];
-        $username = $_POST['name'];
+        $fullName = $_POST['name'];
         $email = $_POST['email'];
 
         $profileManager = new ProfileManager();
-        $profileManager->updateProfile($id, $username, $email);
+        $success = $profileManager->updateProfile($id, $fullName, $email);
+
+        if ($success) {
+            header('Location:'.APP_URL.'profile');
+            exit;
+        } else {
+            echo "Failed to update user information.";
+        }
     }
+
+
 
     public function updateImage()
     {

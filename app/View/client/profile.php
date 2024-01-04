@@ -1,19 +1,21 @@
 
 <?php
+    $data = $data[0];
     require '../app/View/layouts/head.php';
     require '../app/View/layouts/navbar.php';
     ?>
 
 <div style="background-color: #064534">
 <section class="section profile p-5 " >
+  
       <div class="row">
         <div class="col-xl-4">
 
           <div class="card" >
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="<?php echo asset('asset/img/profile-img.jpg')?>" alt="Profile" class="rounded-circle">
-              <h2 style="color: #FF7900">Kevin Anderson</h2>
+              <img src="<?=$data['image']?>" alt="Profile" class="rounded-circle">
+              <h2 style="color: #FF7900"><?=$data['name']?></h2>
               <h3 style="color: #FF7900">Web Designer</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -60,13 +62,13 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-9 col-md-8"><?=$data['name']?></div>
                   </div>
 
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    <div class="col-lg-9 col-md-8"><?=$data['email']?></div>
                   </div>
 
                 </div>
@@ -74,11 +76,11 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form method='post' action="<?=APP_URL?>profile/saveChanges" >
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="<?php echo asset('asset/img/profile-img.jpg')?>" alt="Profile">
+                        <img src="<?=$data['image']?>" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -89,14 +91,14 @@
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+                        <input name="name" type="text" class="form-control" id="fullName" value="<?=$data['name']?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                        <input name="email" type="email" class="form-control" id="Email" value="<?=$data['email']?>">
                       </div>
                     </div>
 
@@ -156,7 +158,7 @@
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
+                        <input name="password" type="password" class="form-control" id="currentPassword" value="<?=$data['password']?>">
                       </div>
                     </div>
 
