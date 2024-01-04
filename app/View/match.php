@@ -1,7 +1,11 @@
 <section class="wrapper">
   <div class="container">
     <!-- <div class="row">
+ <?php  
 
+      $match = $data["matches"];
+      $status= $data["status"];
+    ?>
     </div> -->
     <div class="row">
       <div class=" text-center">
@@ -10,25 +14,36 @@
           <div class="card-img-overlay d-flex flex-column">
             <div class="card-body">
               
-              <h4 class="card-title mt-0 text-center"><?= $data[0]->MatchDateTime ?></h4>
-              <p class="card-title mt-0 text-center">Stadium : <?= $data[0]->stadiomName ?> </p>
+              <h4 class="card-title mt-0 text-center"><?= $match[0]->MatchDateTime ?></h4>
+              <p class="card-title mt-0 text-center">Stadium : <?= $match[0]->stadiomName ?> </p>
               <div class="d-flex flex-row align-items-center justify-content-between mb-2">
                 <div class="col-3 text-right d-flex flex-column text-center">
-                  <img style="border-radius:100%;" src="https://flagsapi.com/<?=$data[0]->logoA?>/flat/64.png" alt="flag of <?= $data[0]->teamA ?> ">
-                  <p class="name mt-0 text-center"><?= $data[0]->teamA ?></p>
+                  <img style="border-radius:100%;" src="https://flagsapi.com/<?=$match[0]->logoA?>/flat/64.png" alt="flag of <?= $match[0]->teamA ?> ">
+                  <p class="name mt-0 text-center"><?= $match[0]->teamA ?></p>
 
                 </div>
                 <div class="vs me-2">VS</div>
                 <div class="col-3 text-right d-flex flex-column ms-2 text-center">
-                  <img style="border-radius:100%;"  src="https://flagsapi.com/<?=$data[0]->logoB?>/flat/64.png" alt="flag of <?= $data[0]->teamB ?> ">
-                  <p class="name mt-0 text-center"><?= $data[0]->teamB ?></p>
+                  <img style="border-radius:100%;"  src="https://flagsapi.com/<?=$match[0]->logoB?>/flat/64.png" alt="flag of <?= $match[0]->teamB ?> ">
+                  <p class="name mt-0 text-center"><?= $match[0]->teamB ?></p>
                 
                 </div>
               </div>
               <!-- <div class="text-center"><a href="" class="btn border border-dotted  mt-5 py-3 px-5 fs-5">Reserve</a></div> -->
-              <button type="button" class="btn btn-success mt-5 py-3 px-5 fs-5  " data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" ><a  class="reserve">Reserve</a></button>
+              <?php  
 
+                  if(isset($_SESSION["idUser"])){ 
+               ?>
+              <button class="btn btn-success mt-5 py-3 px-5 fs-5  " type="button" <?= $status  ? 'data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"' : ""?> ><a  class="reserve"><?= $status  ? "Reserve" : "match is passed" ?></a></button>
+               <?php
+               } else { 
+               ?>
+                
+                <?php  
+               }
+                   ?>
+                
             </div>
           </div>
         </div>
@@ -60,7 +75,7 @@
                       <input type="number" name="number_of_ticket" class="form-control" id="inputPassword" value="1" required max="4" min="1">
                     </div>
                   </div>
-                   <input type="hidden" value="<?=$data[0]->id?>" name="id" >
+                   <input type="hidden" value="<?=$match[0]->id?>" name="id" >
                   <div class="mb-3 row">
                     <div  class="col-sm-10" >
                   <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" required >

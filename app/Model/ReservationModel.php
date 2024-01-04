@@ -81,4 +81,16 @@ class ReservationModel extends Connection
         $tickets = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $tickets;
     }
+
+    function ticketRest($id_match){
+        $id_match+=0;
+        $sql = "SELECT (SELECT capacity FROM stadium INNER join matche ON stadium.id=matche.stadium_id WHERE matche.id = 2) 
+        -COUNT(*) as ticketRest FROM ticket WHERE matchID = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id_match, PDO::PARAM_INT);
+        $stmt->execute();
+        $reset = $stmt->fetch(PDO::FETCH_OBJ)->ticketRest;
+        return $reset;
+    }
+   
 }

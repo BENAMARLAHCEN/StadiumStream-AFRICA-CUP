@@ -15,12 +15,19 @@ class ReservationController  extends Controller
             $id_user = $_SESSION['idUser'];     // we will take it from session !!
             $id_match = $_POST['id'];
             $number_of_ticket = $_POST["number_of_ticket"];
+            $reservation = new ReservationModel();
             if ($number_of_ticket > 4  || $number_of_ticket < 1) {
                 $_SESSION['errors'] = 'enter a valid number of tickets, you have max tree ticket';
                 header('location:' . APP_URL . 'Match/reserve/' . $id_match);
+                exit;
+            }else if($reservation->ticketRest($id_match)-$number_of_ticket<0){
+                $_SESSION['errors'] = 'the ticket is finished choose another matche';
+                header('location:' . APP_URL . 'Match/reserve/' . $id_match);
+                exit;
             }
+
             $data = ["id_user" => $id_user, "ticket_count" => $number_of_ticket, "id_match" => $id_match];
-            $reservation = new ReservationModel();
+            
             $reservid = $reservation->addReservation($data);
             if ($reservid) {
                 header('location:' . APP_URL . 'Reservation/Ticket/' . $reservid);
