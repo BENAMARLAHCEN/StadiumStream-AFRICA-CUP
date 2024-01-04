@@ -49,6 +49,7 @@ class ReservationModel extends Connection
             B.logo AS logoB,
             B.TeamName AS teamB,
             MatchDateTime,
+            r.id as id,
             GroupID,
             user.email,
             user.name,
@@ -92,5 +93,6 @@ class ReservationModel extends Connection
         $reset = $stmt->fetch(PDO::FETCH_OBJ)->ticketRest;
         return $reset;
     }
+    
    
 }
