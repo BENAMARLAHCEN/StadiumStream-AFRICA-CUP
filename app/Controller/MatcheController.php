@@ -7,6 +7,7 @@ use App\Model\MatchModel;
 use App\Model\Team;
 use App\Model\Stadium;
 use core\Carbons;
+use Exception;
 class MatcheController extends Controller
 {
     public function index()
@@ -16,12 +17,14 @@ class MatcheController extends Controller
         $this->adminView('MatchList', $matche);
     }
     public function Add()
-    {  
+    {    
+        session_start();
         $team = new Team;
         $team = $team->selectAllTeam();
         $stadium = new Stadium;
         $stadium = $stadium->selectAllStadium();
         $this->adminView('AddMatch',["team"=>$team,"stadium"=> $stadium]);
+        session_destroy();
     }
     
     public function Edit($id)
