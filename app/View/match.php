@@ -27,7 +27,7 @@
               </div>
               <!-- <div class="text-center"><a href="" class="btn border border-dotted  mt-5 py-3 px-5 fs-5">Reserve</a></div> -->
               <button type="button" class="btn btn-success mt-5 py-3 px-5 fs-5  " data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" style=""><a  class="reserve">Reserve</a></button>
+                data-bs-target="#staticBackdrop" ><a  class="reserve">Reserve</a></button>
 
             </div>
           </div>
@@ -57,7 +57,7 @@
                   <div class="mb-3 row">
                     <label for="inputPassword"  class="col-sm-2 col-form-label"    >Number Of tecket</label>
                     <div class="col-sm-10">
-                      <input type="number" name="number_of_ticket" class="form-control" id="inputPassword" value="1" required>
+                      <input type="number" name="number_of_ticket" class="form-control" id="inputPassword" value="1" required max="4" min="1">
                     </div>
                   </div>
                    <input type="hidden" value="<?=$data[0]->id?>" name="id" >
