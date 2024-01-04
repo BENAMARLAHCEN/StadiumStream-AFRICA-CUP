@@ -6,7 +6,7 @@ $(document).ready(function() {
 	  autoApply: true,
 	  locale: {
 		format: 'YYYY-MM-DD',
-		separator: ' - ',
+		separator: '/',
 		applyLabel: 'Apply',
 		cancelLabel: 'Cancel',
 		fromLabel: 'From',
