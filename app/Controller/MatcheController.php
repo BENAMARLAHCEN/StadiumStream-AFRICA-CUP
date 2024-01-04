@@ -19,13 +19,13 @@ class MatcheController extends Controller
     }
     public function Add()
     {
-        session_start();
+        
         $team = new Team;
         $team = $team->selectAllTeam();
         $stadium = new Stadium;
         $stadium = $stadium->selectAllStadium();
         $this->adminView('AddMatch', ["team" => $team, "stadium" => $stadium]);
-        session_destroy();
+        
     }
 
     public function Edit($id)
@@ -93,9 +93,14 @@ class MatcheController extends Controller
     {
         $newMatche = new Matche;
         if ($newMatche->DeleteMatche($id)) {
-            header('location:../../Matche');
+               
+            $_SESSION['succesMessage'] = "The match has been deleted successfully";
+                    
+            header("Location:" . APP_URL . "matche");
+            exit;
         } else {
             header('location:../errors');
+            exit;
         }
     }
     public function UpdateMatche()
@@ -130,7 +135,8 @@ class MatcheController extends Controller
                     
                     $_SESSION['succesMessage'] = "The match has been updated successfully";
                     
-                    header('location:../Matche');
+                    header("Location:" . APP_URL . "matche");
+
                     exit;
                 }
             } else {
