@@ -11,11 +11,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>team a</th>
-                                <th>team b</th>
-                                <th>date</th>
-                                <th>group</th>
-                                <th>stadium</th>
+                                <th>Team 1</th>
+                                <th>Team 2</th>
+                                <th>Date</th>
+                                <th>Group</th>
+                                <th>Stadium</th>
                                
                             </tr>
                         </thead>
