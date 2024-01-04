@@ -18,9 +18,9 @@ class MatchModel extends Connection
             $where = "1";
         }
     try{
-        $sql = "SELECT matche.id as id , A.TeamName AS teamA , A.logo AS logoA , B.logo AS logoB,  B.TeamName AS teamB, MatchDateTime , Result, GroupID , stadium.name AS stadiomName ,stadium.city 
-                  FROM matche INNER JOIN team A INNER JOIN team B INNER JOIN stadium ON A.id = matche.Team1ID AND  B.id = matche.Team2ID 
-                  AND stadium.id=matche.stadium_id
+        $sql = "SELECT matche.id as id , A.id as Team1ID , B.id as Team2ID   , A.TeamName AS teamA , A.logo AS logoA , B.logo AS logoB,  B.TeamName AS teamB, MatchDateTime , Result, GroupID , stadium.name AS stadiomName , stadium.id as stadiumID ,stadium.city 
+        FROM matche INNER JOIN team A INNER JOIN team B INNER JOIN stadium ON A.id = matche.Team1ID AND  B.id = matche.Team2ID 
+        AND stadium.id=matche.stadium_id
                  WHERE {$where}
                   ORDER BY matche.MatchDateTime ASC ;";
     
