@@ -1,3 +1,24 @@
+<?php  
+if(isset($_SESSION['succesMessage'])):
+    $message = $_SESSION['succesMessage'];
+    unset($_SESSION['succesMessage']);
+?>
+    <div id="messageError"  class="d-flex justify-content-between alert alert-success">
+        <div>
+            <?=$message?>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+
+    </div>
+   
+  
+<?php endif;
+ 
+  
+?>
+
+
 <section class="section">
     <div class="row">
         <div class="col-lg-12">

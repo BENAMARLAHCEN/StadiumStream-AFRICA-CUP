@@ -53,37 +53,39 @@ class MatcheController extends Controller
 
 
             $newMatche = new Matche;
-            if ($newMatche->addMatche($_POST)) {
-                $carbon = new Carbons;
-                $date = $_POST["MatchDateTime"];
-                $status = true;
-                $message = "";
-                $deffDAY = $carbon->checkRemainingDays($date);
-                session_start();
 
-                if (
-                    empty($_POST["Team1ID"]) || empty($_POST["Team2ID"]) || empty($_POST["stadium_id"])
-                    || empty($_POST["GroupID"]) || empty($_POST["MatchDateTime"])
-                ) {
-                    $message = "please enter all data <br>";
-                    $status = false;
-                } else if ($deffDAY < 2) {
+            $carbon = new Carbons;
+            $date = $_POST["MatchDateTime"];
+            $status = true;
+            $message = "";
+            $deffDAY = $carbon->checkRemainingDays($date);
 
 
-                    $message .= "please enter a date above a 3 days <br>";
-                    $status = false;
-                }
-                if ($status) {
-                    $_SESSION['succesMessage'] = "the match addes with succes";
-                    header("Location:" . APP_URL . "matche");
-                    exit;
-                } else {
+            if (
+                empty($_POST["Team1ID"]) || empty($_POST["Team2ID"]) || empty($_POST["stadium_id"])
+                || empty($_POST["GroupID"]) || empty($_POST["MatchDateTime"])
+            ) {
+                $message = "please enter all data <br>";
+                $status = false;
+            } else if ($deffDAY < 2) {
 
-                    $_SESSION['errorMessage'] = $message;
-                    header("Location:" . APP_URL . "matche/Add");
-                    exit;
-                }
+
+                $message .= "please enter a date above a 3 days <br>";
+                $status = false;
             }
+            if ($status) {
+                $newMatche->addMatche($_POST);
+                $_SESSION['succesMessage'] = "the match addes with succes";
+
+                header("Location:" . APP_URL . "matche");
+                exit;
+            } else {
+
+                $_SESSION['errorMessage'] = $message;
+                header("Location:" . APP_URL . "matche/Add");
+                exit;
+            }
+
         }
     }
 
@@ -104,14 +106,37 @@ class MatcheController extends Controller
             $id = $_POST['id'];
             unset($_POST['id']);
 
-            if ($newMatche->UpdateMatche($_POST, $id)) {
-                session_start();
-                $_SESSION['succesMessage'] = "The match has been updated successfully";
-                session_destroy();
-                header('location:../Matche');
-                exit;
+            $carbon = new Carbons;
+            $date = $_POST["MatchDateTime"];
+            $status = true;
+            $message = "";
+            $deffDAY = $carbon->checkRemainingDays($date);
+
+
+            if (
+                empty($_POST["Team1ID"]) || empty($_POST["Team2ID"]) || empty($_POST["stadium_id"])
+                || empty($_POST["GroupID"]) || empty($_POST["MatchDateTime"])
+            ) {
+                $message = "please enter all data <br>";
+                $status = false;
+            } else if ($deffDAY < 2) {
+
+
+                $message .= "please enter a date above a 3 days <br>";
+                $status = false;
+            }
+            if ($status) {
+                if ($newMatche->UpdateMatche($_POST, $id)) {
+                    
+                    $_SESSION['succesMessage'] = "The match has been updated successfully";
+                    
+                    header('location:../Matche');
+                    exit;
+                }
             } else {
-                header('location:../errors');
+
+                $_SESSION['errorMessage'] = $message;
+                header("Location:" . APP_URL . "matche/Edit/".$id);
                 exit;
             }
         }
