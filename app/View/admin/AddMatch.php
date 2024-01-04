@@ -1,14 +1,23 @@
 <?php  
-   if(isset($_SESSION['errorMessage'])):
-    ?>
-<div class="alert alert-danger" role="alert">
-  <?=$_SESSION['errorMessage']?>
-</div>
-<?php 
-unset($_SESSION['errorMessage']);
+if(isset($_SESSION['errorMessage'])):
+    $message = $_SESSION['errorMessage'];
+    unset($_SESSION['errorMessage']);
+?>
+    <div id="messageError"  class="d-flex justify-content-between alert alert-danger">
+        <div>
+            <?=$message?>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
 
-endif; ?>
+    </div>
+
+  
+<?php endif; ?>
+
+
+
+
 <section class="section dashboard">
     <div class="card">
         <div class="card-body">
@@ -19,7 +28,7 @@ endif; ?>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="Team1ID" class="form-control" id="slectTeamA" placeholder="Team Name">
-                       <option selected disabled value="">Select Team 1</option>
+                       <option selected disabled >select team a</option>
 
                             <?php
                             $team = $data["team"];
@@ -49,29 +58,12 @@ endif; ?>
                 </div>
 
 
-                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-                <script>
-    $(document).ready(function() {
-        $("#slectTeamA").change(function() {
-            var selectedTeam1 = $(this).val();
-
-            $("#slectTeamB").html('<option selected disabled value="">select team b</option>');
-
-            <?php foreach ($team as $row) { ?>
-                if ("<?=$row['id']?>" !== selectedTeam1) {
-                    $("#slectTeamB").append('<option value="<?=$row['id']?>"><?=$row['TeamName']?></option>');
-                }
-            <?php } ?>
-        });
-
-    });
-</script>
                 <div class="col-md-6">
                     <div class="form-floating">
                        
                         <select name="GroupID" class="form-control" >
-                            <option selected disabled value="">Select Group</option>
+                            <option selected disabled >Select Group</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -92,7 +84,7 @@ endif; ?>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select name="stadium_id" class="form-control" placeholder="Stadium Name">
-                        <option selected disabled value="">Select Stadium</option>
+                        <option selected disabled >Select Stadium</option>
                             <?php
                             
                             $stadium = $data["stadium"];
@@ -114,3 +106,34 @@ endif; ?>
         </div>
     </div>
 </section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+
+
+
+
+
+
+$(document).ready(function() {
+
+
+
+
+
+$("#slectTeamA").change(function() {
+var selectedTeam1 = $(this).val();
+
+$("#slectTeamB").html('<option selected disabled >select team b</option>');
+
+<?php foreach ($team as $row) { ?>
+if ("<?=$row['id']?>" !== selectedTeam1) {
+    $("#slectTeamB").append('<option value="<?=$row['id']?>"><?=$row['TeamName']?></option>');
+}
+<?php } ?>
+});
+
+});
+</script>
