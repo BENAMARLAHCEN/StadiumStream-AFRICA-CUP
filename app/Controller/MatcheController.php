@@ -8,6 +8,7 @@ use App\Model\Team;
 use App\Model\Stadium;
 use core\Carbons;
 use Exception;
+
 class MatcheController extends Controller
 {
     public function index()
@@ -17,63 +18,73 @@ class MatcheController extends Controller
         $this->adminView('MatchList', $matche);
     }
     public function Add()
-    {    
+    {
         session_start();
         $team = new Team;
         $team = $team->selectAllTeam();
         $stadium = new Stadium;
         $stadium = $stadium->selectAllStadium();
-        $this->adminView('AddMatch',["team"=>$team,"stadium"=> $stadium]);
+        $this->adminView('AddMatch', ["team" => $team, "stadium" => $stadium]);
         session_destroy();
     }
-    
+
     public function Edit($id)
-    {   $team = new Team;
-        $team = $team->selectAllTeam();
-        $matche = new Stadium;
-        $matche = $matche->selectAllStadium();
-        $oldMatch=new MatchModel();
-        $oldMatch=$oldMatch->selectMatch($id);
-        $this->adminView('EditMatch', ["team"=>$team,"stadium"=> $matche,"oldMatch"=>$oldMatch]);
+    {
+        $teamModel = new Team;
+        $teamList = $teamModel->selectAllTeam();
+
+        $stadiumModel = new Stadium;
+        $stadiumList = $stadiumModel->selectAllStadium();
+
+        $matchModel = new MatchModel();
+        $oldMatch = $matchModel->selectMatch($id);
+
+        if ($oldMatch) {
+            $this->adminView('EditMatch', ["team" => $teamList, "stadium" => $stadiumList, "oldMatch" => $oldMatch]);
+        } else {
+            echo "invalid";
+        }
     }
 
     public function AddMatch()
-    {   
-       
-         if($_SERVER["REQUEST_METHOD"]=="POST"){
+    {
 
-           
-        $newMatche = new Matche;
-        if($newMatche->addMatche($_POST)) {
-              $carbon =  new Carbons;
-              $date = $_POST["MatchDateTime"];
-              $status=true;
-              $message = "";
-             $deffDAY= $carbon->checkRemainingDays($date);
-             session_start();
-            
-             if(empty($_POST["Team1ID"])||empty($_POST["Team2ID"])||empty($_POST["stadium_id"])
-             ||empty($_POST["GroupID"])||empty($_POST["MatchDateTime"])){
-                $message = "please enter all data <br>";
-                $status=false;
-            } else if($deffDAY<2) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-               
-                $message .="please enter a date above a 3 days <br>";
-                $status=false;
-             }
-             if($status){
-                $_SESSION['succesMessage'] = "the match addes with succes";
-            header("Location:" . APP_URL . "matche");
-            exit;
-             }else{
-            
-              $_SESSION['errorMessage'] = $message;
-             header("Location:" . APP_URL . "matche/Add");
-            exit;
-           }
+
+            $newMatche = new Matche;
+            if ($newMatche->addMatche($_POST)) {
+                $carbon = new Carbons;
+                $date = $_POST["MatchDateTime"];
+                $status = true;
+                $message = "";
+                $deffDAY = $carbon->checkRemainingDays($date);
+                session_start();
+
+                if (
+                    empty($_POST["Team1ID"]) || empty($_POST["Team2ID"]) || empty($_POST["stadium_id"])
+                    || empty($_POST["GroupID"]) || empty($_POST["MatchDateTime"])
+                ) {
+                    $message = "please enter all data <br>";
+                    $status = false;
+                } else if ($deffDAY < 2) {
+
+
+                    $message .= "please enter a date above a 3 days <br>";
+                    $status = false;
+                }
+                if ($status) {
+                    $_SESSION['succesMessage'] = "the match addes with succes";
+                    header("Location:" . APP_URL . "matche");
+                    exit;
+                } else {
+
+                    $_SESSION['errorMessage'] = $message;
+                    header("Location:" . APP_URL . "matche/Add");
+                    exit;
+                }
+            }
         }
-     }
     }
 
     public function DeleteMatch($id)
@@ -88,14 +99,24 @@ class MatcheController extends Controller
     public function UpdateMatche()
     {
         $newMatche = new Matche;
-        $id = $_POST['id'];
-        unset($_POST['id']);
-        if ($newMatche->UpdateMatche($_POST, $id)) {
-            header('location:../Matche');
-        } else {
-            header('location:errors');
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id = $_POST['id'];
+            unset($_POST['id']);
+
+            if ($newMatche->UpdateMatche($_POST, $id)) {
+                session_start();
+                $_SESSION['succesMessage'] = "The match has been updated successfully";
+                session_destroy();
+                header('location:../Matche');
+                exit;
+            } else {
+                header('location:../errors');
+                exit;
+            }
         }
     }
+
 
     public function deletMatche()
     {
@@ -106,6 +127,7 @@ class MatcheController extends Controller
             } else {
                 $this->index();
             }
-        } else $this->index();
+        } else
+            $this->index();
     }
 }

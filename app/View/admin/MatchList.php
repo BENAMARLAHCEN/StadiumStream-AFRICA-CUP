@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">MATCH LIST</h5>
-                    <button id="addTeamBtn" class="btn btn-primary mb-3"><a class="text-decoration-none" href="Matche/Add">Add Match</a></button>
+                    <button id="addTeamBtn" class="btn btn-primary mb-3"><a class="text-decoration-none" href="Matche/Add" style="color: white;">Add Match</a></button>
                     <!-- Table with stripped rows -->
                     <table class="table datatable">
                         <thead>
