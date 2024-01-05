@@ -1,18 +1,22 @@
 <?php 
-use App\Controller\Controller;
+namespace App\Controller;
 use App\Model\Filter;
 use App\Model\MatchController;
 use App\Model\MatchModel;
      class FilterController extends Controller {
-            private $modelFilter = new Filter();
-            private $match = new  MatchModel();
+            private $modelFilter ;
+            function __construct()
+            {
+               $this->modelFilter = new Filter(); 
+            }
+
             function filterByTime(){
               
             if(isset($_POST["Datelimit"]))
             {
                $time =  explode("/",$_POST["Datelimit"]);
                $match  = $this->modelFilter->ByTime($time[0],$time[1]);
-               $this->view("search",$match);
+               require '../app/View/search.php';
             }
            }
            
@@ -23,7 +27,8 @@ use App\Model\MatchModel;
             {
             $team =  $_POST["search"];
                $match = $this->modelFilter->ByTeam($team);
-               $this->view("search",$match);
+             
+               require '../app/View/search.php';
             }
            }
            function filterByStaduim(){
@@ -32,7 +37,7 @@ use App\Model\MatchModel;
             {
             $team =  $_POST["search"];
                $match = $this->modelFilter->ByStaduim($team);
-               $this->view("search",$match);
+               require '../app/View/search.php';
             }
            } 
 
