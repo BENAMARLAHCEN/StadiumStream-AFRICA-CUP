@@ -6,57 +6,57 @@ function changeFilter() {
         document.getElementById('searchinput').innerHTML = '<input oninput="searchbyStadium()" type="search" placeholder="Search by stadiums " class="form-control" id="search" name="search">';
     }
 }
-// Function to search projects by Team
+// Function to search Matchs by Team
 
 function searchbyTeam() {
     var search = document.getElementById('search').value;
-    showProjectByTeam(search);
+    showMatchByTeam(search);
 }
 
-// Function to search projects by Stadium
+// Function to search Matchs by Stadium
 
 function searchbyStadium() {
     var search = document.getElementById('search').value;
-    showProjectByStadium(search);
+    showMatchByStadium(search);
 }
 
-function showProjectByTeam(team) {
+function showMatchByTeam(team) {
     $.ajax({
-        url: "http://localhost/StadiumStream-AFRICA-CUP/Filter/",
+        url: "http://localhost/StadiumStream-AFRICA-CUP/Filter/filterByTeam",
         method: "post",
         data: {
             search: team
         },
         success: function (data) {
-            displayMatches(JSON.parse(res));
+            $('.allMatche-section').html(data);
         }
     });
 }
 
-function showProjectByStadium(stadium) {
+function showMatchByStadium(stadium) {
     $.ajax({
-        url: "http://localhost/StadiumStream-AFRICA-CUP/",
+        url: "http://localhost/StadiumStream-AFRICA-CUP/Filter/filterByStaduim",
         method: "post",
         data: {
             search: stadium
         },
         success: function (data) {
-            displayMatches(JSON.parse(res));
+            $('.allMatche-section').html(data);
         }
     });
 }
 
-function showProjectByDate() {
-    var date = $('.datelimit').value;
-    console.log(date);
+function showMatchByDate() {
+
+    var date = $('.datelimit').val();
     $.ajax({
-        url: "http://localhost/StadiumStream-AFRICA-CUP/Filter/",
+        url: "http://localhost/StadiumStream-AFRICA-CUP/Filter/filterByTime",
         method: "post",
         data: {
             Datelimit: date
         },
         success: function (data) {
-            displayMatches(JSON.parse(res));
+            $('.allMatche-section').html(data);
         }
     });
 }

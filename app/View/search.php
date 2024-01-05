@@ -1,6 +1,5 @@
 <div id="" class="allMatche-section card01 d-flex flex-wrap justify-content-center">
       <?php
-      $match = $data;
 
       foreach ($match as $i => $m) :
         
