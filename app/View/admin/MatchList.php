@@ -53,7 +53,8 @@ if(isset($_SESSION['succesMessage'])):
                                 <td><?=$row->stadiomName?></td>
                                 <td>
                                     <a href="./matche/Edit/<?=$row->id?>" class="btn btn-info btn-sm edit-team">Edit</a>
-                                    <a href="./matche/DeleteMatch/<?=$row->id?>" class="btn btn-danger btn-sm delete-team">Delete</a>
+                                    <a href="./matche/DeleteMatch/<?=$row->id?>" class="btn btn-danger btn-sm delete-team" onclick="return confirm('Are you sure you want to delete this match?');"
+ >Delete</a>
                                 </td>
                             </tr>
                             <?php

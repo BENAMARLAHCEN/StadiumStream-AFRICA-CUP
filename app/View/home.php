@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="m-0">
-        <button onclick="showProjectByDate()" type="button" class="btn btn-primary btn-search ">
+        <button onclick="showMatchByDate()" type="button" class="btn btn-primary btn-search ">
           <i class="bi bi-search"></i> Search
         </button>
       </div>

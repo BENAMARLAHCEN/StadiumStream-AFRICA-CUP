@@ -22,6 +22,7 @@ class MatcheController extends Controller
     // Affiche le formulaire d'ajout de match
     public function Add()
     {
+        
         // Récupère la liste des équipes et des stades
         $team = new Team;
         $team = $team->selectAllTeam();
@@ -102,9 +103,14 @@ class MatcheController extends Controller
     {
         $newMatche = new Matche;
         if ($newMatche->DeleteMatche($id)) {
-            header('location:../../Matche');
+               
+            $_SESSION['succesMessage'] = "The match has been deleted successfully";
+                    
+            header("Location:" . APP_URL . "matche");
+            exit;
         } else {
             header('location:../errors');
+            exit;
         }
     }
 
