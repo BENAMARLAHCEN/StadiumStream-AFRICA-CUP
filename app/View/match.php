@@ -39,7 +39,7 @@
                <?php
                } else { 
                ?>
-                
+                  <button class="btn btn-success mt-5 py-3 px-5 fs-5  " type="button"  ><a  href="<?=APP_URL?>Auth/login" class="reserve">Sign in to reserve</a></button>
                 <?php  
                }
                    ?>
